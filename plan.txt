@@ -1,0 +1,28 @@
+Overall plan for den 27.02 
+
+1. HTML 
+1.1 Få overskrifter og knapper vist frem
+1.2 Få firstname, lastname og house view vist frem. 
+1.3 copy paste css fra animalbase (midlertidig løsning)
+
+2. Filtrering
+
+3. Sorting
+
+5. Filtering og Sorting
+
+6. Pop up 
+
+7. Search
+
+8. Prefects
+
+9. Squad
+
+10. Expel
+
+11. Hacking
+
+
+10. Implementer eget design
+10.1 Find på animationer til knapper og hacking feature. 
