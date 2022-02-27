@@ -5,7 +5,15 @@ Overall plan for den 27.02
 1.2 Få firstname, lastname og house view vist frem. cbeck
 1.3 copy paste css fra animalbase (midlertidig løsning) check
 
-2. Filtrering - 
+2. Filtrering. 
+- hardcoding for firstname
+- hardcoding for lastname
+- hardcoding for house
+
+- add user interactivity
+
+- cleanup
+
 
 3. Sorting
 

@@ -1,12 +1,7 @@
 "use strict";
 
-
-
 const allStudents = []; 
-
-// Dette skal være en variabel, så den ikke giver fejl med use strict. (skal være defineret)
 let studentData;
-
 const Student = {
 firstName: "",
 middlename: "",
@@ -18,7 +13,6 @@ gender: ""
 };
 
 window.addEventListener("DOMContentLoaded", start);
-
 
 function start() {
 console.log("start");
@@ -34,9 +28,6 @@ async function loadJson() {
     console.table(studentData);
     prepareObjects();
 }
-
-
-
 
 function prepareObjects(jsonData) {
 
@@ -89,7 +80,6 @@ function prepareObjects(jsonData) {
 }
 
 
-
 function displayList(students) {
   // clear the list 
   document.querySelector("#list tbody").innerHTML = "";
@@ -97,8 +87,6 @@ function displayList(students) {
   // build a new list 
   students.forEach ( displayStudents );
 }
-
-
 
 function displayStudents ( student ) {
 // create clone 
