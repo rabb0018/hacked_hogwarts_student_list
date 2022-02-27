@@ -1,36 +1,34 @@
-Overall plan for den 27.02 
+Overall plan yall 
 
-1. HTML 
-1.1 Få overskrifter og knapper vist frem- check
-1.2 Få firstname, lastname og house view vist frem. cbeck
-1.3 copy paste css fra animalbase (midlertidig løsning) check
+xx HTML 
+-  Få overskrifter og knapper vist frem- Check
+- Få firstname, lastname og house view vist frem. Check
+- copy paste css fra animalbase (midlertidig løsning) Check
+- Add knapper, popup osv. check
 
-2. Filtrering. 
-- hardcoding for firstname
-- hardcoding for lastname
-- hardcoding for house
+xx Få Pop up til at virke først
 
+xx Filtrering. 
+- hardcoding for house - Check
+- make filter either gryf, huff, rav or slyth. 
 - add user interactivity
-
 - cleanup
 
 
-3. Sorting
+xx Sorting
 
-5. Filtering og Sorting
+xx Filtering og Sorting
 
-6. Pop up 
+xx Prefects
 
-7. Search
+xx Squad
 
-8. Prefects
+xx Expel
 
-9. Squad
+xx Search
 
-10. Expel
-
-11. Hacking
+xx Hacking
 
 
-10. Implementer eget design
-10.1 Find på animationer til knapper og hacking feature. 
+xx add eget design
+- Find på animationer til knapper og hacking feature. 
