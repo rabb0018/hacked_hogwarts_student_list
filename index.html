@@ -4,24 +4,41 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Hogwarts Student List</title>
 </head>
 <body>
  <h1>Hogwarts School of Witchcraft and Wizardry</h1>
 
     <h2>Studentlist</h2>
-    <p>
-      Filter:
-      <button class="filter" data-action="filter" data-filter="*">All</button>
-      <button class="filter" data-action="filter" data-filter="house">House</button>
-      <button class="filter" data-action="filter" data-filter="prefects">Prefects</button>
-      <button class="filter" data-action="filter" data-filter="squad">Inquisitorial Squad</button>
-      <button class="filter" data-action="filter" data-filter="player">Quidditch Player</button>
-      <button class="filter" data-action="filter" data-filter="bloodstatus">Blood Status</button>
 
-      
+    <!-- filtering selections -->
+    <p>
+      Filter by:      
+      <select name="selecthouse" id="selecthouse">
+        <option class="filter" data-action="filter" data-filter="house" value="house">All Houses</option>
+        <option value="gryffindor">Gryffindor</option>
+        <option value="hufflepuff">Hufflepuff</option>
+        <option value="ravenclaw">Ravenclaw</option>
+        <option value="slytherin">Slytherin</option>
+      </select>
+
+      <select name="selectbloodstatus" id="selectbloodstatus">
+        <option class="filter" data-action="filter" data-filter="bloodstatus" value="bloodstatus">All Blood Status</option>
+        <option value="purebloods">Pure-bloods</option>
+        <option value="halfbloods">Half-bloods</option>
+        <option value="muggleborns">Muggle-borns</option>
+      </select>
+
+      <select name="selectresponsibilities" id="selectresponsibilities">
+        <option class="filter" data-action="filter" data-filter="house" value="responsibilites">All Responsibilites</option>
+        <option value="prefects">Prefects</option>
+        <option value="inquisitorialsquad">Inquisitorial Squad</option>
+        <option value="quidditchplayer">Quidditch Player</option>
+      </select>
     </p>
 
+    <!-- Sorting Selections -->
     <table id="list">
       <thead>
         <tr id="sorting">
@@ -30,6 +47,7 @@
           <th data-action="sort" data-sort-direction="asc" data-sort="house">House</th>
         </tr>
       </thead>
+
       <tbody>
         <!-- student template will be copied and inserted here -->
       </tbody>
@@ -44,15 +62,32 @@
       </tr>
     </template>
 
+    <!-- Popup student info -->
+    <article class="singlestudent hide">
 
-<!-- <div id="individual_student" class="student_modul hide">
+      <button class="closingbutton">X</button>
       
-        insert pop up single for student here. 
+      <p class="firstname"></p>
+      <p class="middlename"></p>
+      <p class="nickname"></p>
+      <p class="lastname"></p>
+      <p class="bloodstatus"></p>
+      <img src="" alt="" class="studentphoto">
+      <img src="" alt="" class="housephoto">
 
-    </div> -->
+      <!-- Buttons for user interactivity -->
+      <p>
+        Click to make or revoke:
+        <button class="makeprefect">Prefect</button>
+        <button class="makesquad">Inquisitorial Squad</button>
+        <button class="expel">Expel</button>
+      </p>
+
+      <!-- button for hacking the system-->
+      <button class="hackthesystem">hackthesystem</button>
 
 
-    <!-- <div id="remove_other" class="modal hide">
+<!-- <div id="remove_other" class="modal hide">
       <div class="dialog">
         <button class="closebutton">X</button>
         <h1>Warning</h1>
@@ -75,8 +110,9 @@
       </div>
     </div> -->
 
+    </article>
 
-
+    
 
     
     <script src="script.js"></script>
