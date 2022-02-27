@@ -1,11 +1,11 @@
 Overall plan for den 27.02 
 
 1. HTML 
-1.1 Få overskrifter og knapper vist frem
-1.2 Få firstname, lastname og house view vist frem. 
-1.3 copy paste css fra animalbase (midlertidig løsning)
+1.1 Få overskrifter og knapper vist frem- check
+1.2 Få firstname, lastname og house view vist frem. cbeck
+1.3 copy paste css fra animalbase (midlertidig løsning) check
 
-2. Filtrering
+2. Filtrering - 
 
 3. Sorting
 
