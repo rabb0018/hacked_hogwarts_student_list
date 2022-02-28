@@ -8,11 +8,14 @@ xx HTML
 
 xx Få Pop up til at virke først
 
+xx Læse blood status fil ind inden alt andet ( Kig på race conditions examples. )
+
 xx Filtrering. 
 - hardcoding for house - Check
 - make filter either gryf, huff, rav or slyth. 
 - add user interactivity
 - cleanup
+
 
 
 xx Sorting
