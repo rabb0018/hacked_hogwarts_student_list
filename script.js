@@ -4,6 +4,7 @@
 // global variables 
 const allStudents = []; 
 let studentData;
+let bloodStatusData;
 let popUp = document.querySelector(".singlestudent");
 
 
@@ -30,14 +31,23 @@ loadJson();
 // Fetching url
 async function loadJson() {
     console.log("load json URL");
-    // fetching student information
+    // fetching student list
     const StudentListUrl = "https://petlatkea.dk/2021/hogwarts/students.json";
 
-    // TODO - fetching blood status information 
+    // fetching blood status information 
+    const bloodStatusUrl = "https://petlatkea.dk/2021/hogwarts/families.json";
 
+    
+    // fetching for student list
     const jsonData = await fetch(StudentListUrl);
     studentData = await jsonData.json();
     console.table(studentData);
+
+    // fetching for blood status
+    const jsonFamiliesData = await fetch(bloodStatusUrl);
+    bloodStatusData = await jsonFamiliesData.json();
+    console.table(bloodStatusData);
+
     prepareObjects();
 }
 
