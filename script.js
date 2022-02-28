@@ -126,19 +126,21 @@ function filterList(studentHouse ) {
   displayList(filteredList);
 }
 
-// For filtering the houses. 
+// For filtering the Gryffindor. 
 function isGryffindor( student ) {
   return student.house === "Gryffindor";
 }
-
+// For filtering the Huffelpuff. 
 function isHufflepuff( student ) {
   return student.house === "Hufflepuff";
 }
 
+// For filtering the Ravenclaw. 
 function isRavenclaw( student ) {
   return student.house === "Ravenclaw";
 }
 
+// For filtering the Slytherin. 
 function isSlytherin( student ) {
   return student.house === "Slytherin";
 }
@@ -159,11 +161,11 @@ function displayList(students) {
 
 // Displaying all of the students
 function displayStudents ( student ) {
-// create clone 
 
-const clone = document.querySelector("template#student").content.cloneNode(true);
+    // create clone 
+    const clone = document.querySelector("template#student").content.cloneNode(true);
 
-// set clone data 
+    // set clone data 
     clone.querySelector("[data-field=firstname]").textContent = student.firstName;
     clone.querySelector("[data-field=lastname]").textContent = student.lastName;
     clone.querySelector("[data-field=house]").textContent = student.house;
@@ -173,8 +175,8 @@ const clone = document.querySelector("template#student").content.cloneNode(true)
 
 
 
-// NOT WOKRING add eventlistener for popup
-// clone.querySelector(".student").addEventListener("click", settingPopup);
+    // NOT WOKRING add eventlistener for popup
+    // clone.querySelector(".student").addEventListener("click", settingPopup);
 
 }
 
