@@ -63,10 +63,11 @@
     </template>
 
     <!-- Popup student info -->
-    <article class="singlestudent hide">
-
+    <div id="studentview" class="modalpop hide">
+      <div class="dialogstudentinfo">
       <button class="closingbutton">X</button>
-      
+
+    <article class="singlestudent">
       <p class="firstname"></p>
       <p class="middlename"></p>
       <p class="nickname"></p>
@@ -74,20 +75,22 @@
       <p class="bloodstatus"></p>
       <img src="" alt="" class="studentphoto">
       <img src="" alt="" class="housephoto">
+    </article>
 
       <!-- Buttons for user interactivity -->
-      <p>
-        Click to make or revoke:
+      <p> Click to make or revoke: </p>
         <button class="makeprefect">Prefect</button>
         <button class="makesquad">Inquisitorial Squad</button>
-        <button class="expel">Expel</button>
-      </p>
+        <button class="makeexpel">Expel</button>
+      
 
       <!-- button for hacking the system-->
       <button class="hackthesystem">hackthesystem</button>
+    </div>
+  </div>
 
 
-<!-- <div id="remove_other" class="modal hide">
+  <!-- <div id="remove_other" class="modal hide">
       <div class="dialog">
         <button class="closebutton">X</button>
         <h1>Warning</h1>
@@ -95,9 +98,9 @@
         Do you want to remove the other winner? <br>
         <button id="removeOther">Remove <span data-field="otherwinner">other</span></button></p> 
       </div>
-    </div> -->
+      </div> -->
 
-    <!-- <div id="remove_aorb" class="modal hide">
+      <!-- <div id="remove_aorb" class="modal hide">
       <div class="dialog">
         <button class="closebutton">X</button>
         <h1>Warning</h1>
@@ -109,11 +112,6 @@
         </div>
       </div>
     </div> -->
-
-    </article>
-
-    
-
     
     <script src="script.js"></script>
 </body>

@@ -3,9 +3,12 @@
 
 // global variables 
 const allStudents = []; 
+
 let studentData;
 let bloodStatusData;
-let popUp = document.querySelector(".singlestudent");
+
+// TODO : make my freaking popup work man
+let popUp = document.querySelector("#studentview");
 
 
 
@@ -16,7 +19,8 @@ nickName: "",
 lastName: "",
 photo: "",
 house: "",
-gender: ""
+gender: "",
+bloodstatus: ""
 };
 
 // Loading the window
@@ -84,8 +88,9 @@ function prepareObjects(jsonData) {
         // Cleaning lastname
         student.lastName = fullname.substring(fullname.lastIndexOf(" ") + 1, fullname.lastIndexOf(" ") + 2).toUpperCase() + fullname.substring(fullname.lastIndexOf(" ") + 2).toLowerCase();
 
-        // ASK FOR HELP 
-        // TODO student.photo = 
+        // Photo fixed
+        student.photo = `./student_profile_pics/${fullname.substring(fullname.lastIndexOf(" ") + 1).toLowerCase()}_${student.firstName.charAt(0).toLowerCase()}.jpg`;
+ 
 
         // Cleaning house
         student.house = house.charAt(0).toUpperCase() + house.substring(1).toLowerCase();
@@ -142,10 +147,24 @@ function isRavenclaw( student ) {
 
 // For filtering the Slytherin. 
 function isSlytherin( student ) {
-  return student.house === "Slytherin";
+  return student.bloodstatus === "Slytherin";
 }
 
 // TODO: filtering the bloodstatus
+
+// function isPureblood( student ) {
+//   return student.bloodstatus === "pure";
+// }
+
+// function isHalfblood( student ) {
+//   return student.bloodstatus === "half";
+// }
+
+// function isMuggle( student ) {
+//   return student.bloodstatus === "muggle";
+// }
+
+
 
 // TODO: filtering the resposibilites
 
@@ -170,37 +189,45 @@ function displayStudents ( student ) {
     clone.querySelector("[data-field=lastname]").textContent = student.lastName;
     clone.querySelector("[data-field=house]").textContent = student.house;
 
+
+    //adding eventlistener for popup
+    clone.querySelector("[data-field=firstname]").addEventListener("click", () => displayStudent(Student));
+    clone.querySelector("[data-field=lastname]").addEventListener("click", () => displayStudent(Student));
+
+
     // append clone to list
     document.querySelector("#list tbody").appendChild( clone );
-
-
-
-    // NOT WOKRING add eventlistener for popup
-    // clone.querySelector(".student").addEventListener("click", settingPopup);
 
 }
 
 
-// function settingPopup(event) {
-//   displayStudent(Student);
-// }
-
-// // TODO: Popup student view
-// function displayStudent(Student) {
-//   console.log(Student);
-
-//  popUp.classList.remove("hidden;")
-
-//   // display student in poppity oppity
-//   document.querySelector(".firstname").textContent = Student.firstName;
-//   document.querySelector(".middlename").textContent = Student.middlename;
-//   document.querySelector(".nickname").textContent = Student.nickName;
-//   document.querySelector(".lastname").textContent = Student.lastName;
 
 
-//   // TODO: make these work hehe 
-//   // document.querySelector(".bloodstatus").textContent = Student.bloodstatus;
-//   // document.querySelector(".studentphoto").textContent = Student.lastName;
-//   // document.querySelector(".housephoto").textContent = Student.lastName;
+// TODO: Popup student view
 
-// }
+
+
+function displayStudent(Student) {
+  console.log(Student);
+
+  document.querySelector("#studentview").classList.remove("hide");
+  document.querySelector("#studentview .closingbutton").addEventListener("click", closePopup);
+
+  function closePopup() {
+      document.querySelector("#studentview").classList.add("hide");
+  }
+
+  // display student in poppity oppity
+  // document.querySelector(".firstname").textContent = Student.firstName;
+  // document.querySelector(".middlename").textContent = Student.middlename;
+  // document.querySelector(".nickname").textContent = Student.nickName;
+  // document.querySelector(".lastname").textContent = Student.lastName;
+
+
+  // TODO: make these work hehe 
+  // document.querySelector(".bloodstatus").textContent = Student.bloodstatus;
+  // document.querySelector(".studentphoto").textContent = Student.lastName;
+  // document.querySelector(".housephoto").textContent = Student.lastName;
+
+}
+
