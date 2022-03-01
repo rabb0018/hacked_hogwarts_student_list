@@ -34,6 +34,7 @@ selectedbuttons();
 loadJson();
 }
 
+// Eventlisterners for buttons
 function selectedbuttons() {
 document.querySelectorAll("[data-action='filter']")
 .forEach(button => button.addEventListener("click", selectFilter));
@@ -120,7 +121,7 @@ function prepareObjects(jsonData) {
     displayList(allStudents);
 }
 
-// When user select a filter 
+// When user select a filter button 
 function selectFilter( event ){
   const filter = event.target.dataset.filter;
   console.log(`User selected ${filter}`);
@@ -174,7 +175,6 @@ function isSlytherin( student ) {
 
 // TODO: filtering the bloodstatus
 
-
 // function isPureblood( student ) {
 //   return student.bloodstatus === "pure";
 // }
@@ -188,9 +188,10 @@ function isSlytherin( student ) {
 // }
 
 
-
 // TODO: filtering the resposibilites
 
+
+// When user select a sort button
 function selectSort( event ){
   const sortBy = event.target.dataset.sort;
   console.log(`User selected ${sortBy}`);
@@ -198,6 +199,7 @@ function selectSort( event ){
   sortList(sortBy);
 }
 
+// For sorting
 function sortList(sortBy) {
       let sortedList = allStudents;
 
