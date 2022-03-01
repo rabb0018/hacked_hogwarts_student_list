@@ -2,7 +2,7 @@
 
 
 // global variables 
-const allStudents = []; 
+let allStudents = []; 
 
 let studentData;
 let bloodStatusData;
@@ -29,7 +29,18 @@ window.addEventListener("DOMContentLoaded", start);
 // Start all of the shit
 function start() {
 console.log("start");
+
+selectedbuttons();
 loadJson();
+}
+
+function selectedbuttons() {
+document.querySelectorAll("[data-action='filter']")
+.forEach(button => button.addEventListener("click", selectFilter));
+
+
+document.querySelectorAll("[data-action='sort']")
+.forEach( button => button.addEventListener("click", selectSort));
 }
 
 // Fetching url
@@ -109,21 +120,31 @@ function prepareObjects(jsonData) {
     displayList(allStudents);
 }
 
-// For Filtering overall 
-function filterList(studentHouse ) {
-  // create a filtered list for houses
- let filteredList = allStudents;
+// When user select a filter 
+function selectFilter( event ){
+  const filter = event.target.dataset.filter;
+  console.log(`User selected ${filter}`);
 
-  if (studentHouse === "Gryffindor") {
+  // WORKING
+  filterList(filter);
+}
+
+// For Filtering overall 
+function filterList( filterBy ) {
+  // create a filtered list for houses
+  let filteredList = allStudents;
+
+
+  if (filterBy === "Gryffindor") {
     filteredList = allStudents.filter(isGryffindor);
 
-  }else if(studentHouse === "Hufflepuff") {
+  }else if(filterBy === "Hufflepuff") {
    filteredList = allStudents.filter(isHufflepuff);
 
-  }  else if(studentHouse === "Ravenclaw") {
+  }  else if(filterBy === "Ravenclaw") {
     filteredList = allStudents.filter(isRavenclaw);
 
-  } else if (studentHouse === "Slytherin") {
+  } else if (filterBy === "Slytherin") {
     filteredList = allStudents.filter(isSlytherin);
 
   }
@@ -135,6 +156,7 @@ function filterList(studentHouse ) {
 function isGryffindor( student ) {
   return student.house === "Gryffindor";
 }
+
 // For filtering the Huffelpuff. 
 function isHufflepuff( student ) {
   return student.house === "Hufflepuff";
@@ -147,10 +169,11 @@ function isRavenclaw( student ) {
 
 // For filtering the Slytherin. 
 function isSlytherin( student ) {
-  return student.bloodstatus === "Slytherin";
+  return student.house === "Slytherin";
 }
 
 // TODO: filtering the bloodstatus
+
 
 // function isPureblood( student ) {
 //   return student.bloodstatus === "pure";
@@ -168,6 +191,30 @@ function isSlytherin( student ) {
 
 // TODO: filtering the resposibilites
 
+function selectSort( event ){
+  const sortBy = event.target.dataset.sort;
+  console.log(`User selected ${sortBy}`);
+
+  sortList(sortBy);
+}
+
+function sortList(sortBy) {
+      let sortedList = allStudents;
+
+      sortedList = sortedList.sort (sortByProperty);
+  
+    function sortByProperty (studentA, studentB) {
+      
+      if (studentA[sortBy] < studentB[sortBy]) {
+        return -1;
+      } else {
+        return 1;
+      }
+    }
+
+
+  displayList(sortedList);
+}
 
 // For displaying the list of students. 
 function displayList(students) {
@@ -200,13 +247,7 @@ function displayStudents ( student ) {
 
 }
 
-
-
-
 // TODO: Popup student view
-
-
-
 function displayStudent(Student) {
   console.log(Student);
 

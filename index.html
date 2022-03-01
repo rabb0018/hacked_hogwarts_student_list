@@ -13,37 +13,41 @@
     <h2>Studentlist</h2>
 
     <!-- filtering selections -->
+    <div id="filter">
     <p>
       Filter by:      
-      <select name="selecthouse" id="selecthouse">
-        <option class="filter" data-action="filter" data-filter="house" value="house">All Houses</option>
-        <option value="gryffindor">Gryffindor</option>
-        <option value="hufflepuff">Hufflepuff</option>
-        <option value="ravenclaw">Ravenclaw</option>
-        <option value="slytherin">Slytherin</option>
-      </select>
+      <!-- <select name="selecthouse" id="selecthouse"> -->
+        <!-- <button class="filter" data-action="filter" data-filter="house" value="house">All Houses</button > -->
+        <button class="filter" data-action="filter" data-filter="*">All</button>
+        <button class="filter" data-action="filter" data-filter="Gryffindor">Gryffindor</button >
+        <button class="filter" data-action="filter" data-filter="Hufflepuff">Hufflepuff</button >
+        <button class="filter" data-action="filter" data-filter="Ravenclaw">Ravenclaw</button >
+        <button class="filter" data-action="filter" data-filter="Slytherin">Slytherin</button >
+      <!-- </select> -->
 
-      <select name="selectbloodstatus" id="selectbloodstatus">
-        <option class="filter" data-action="filter" data-filter="bloodstatus" value="bloodstatus">All Blood Status</option>
-        <option value="purebloods">Pure-bloods</option>
-        <option value="halfbloods">Half-bloods</option>
-        <option value="muggleborns">Muggle-borns</option>
-      </select>
+      <!-- <select name="selectbloodstatus" id="selectbloodstatus"> -->
+        <!-- <button  class="filter" data-action="filter" data-filter="bloodstatus" value="bloodstatus">All Blood Status</button > --> 
+         <button class="filter" data-action="filter" data-filter="purebloods">Pure-bloods</button >
+        <button class="filter" data-action="filter" data-filter="halfbloods">Half-bloods</button >
+        <button class="filter" data-action="filter" data-filter="muggleborns">Muggle-borns</button >
+       <!-- </select> -->
 
-      <select name="selectresponsibilities" id="selectresponsibilities">
-        <option class="filter" data-action="filter" data-filter="house" value="responsibilites">All Responsibilites</option>
-        <option value="prefects">Prefects</option>
-        <option value="inquisitorialsquad">Inquisitorial Squad</option>
-        <option value="quidditchplayer">Quidditch Player</option>
-      </select>
+      <!-- <select name="selectresponsibilities" id="selectresponsibilities"> -->
+        <!-- <button  class="filter" data-action="filter" data-filter="house" value="responsibilites">All Responsibilites</button > -->
+        <button class="filter" data-action="filter" data-filter="prefects">Prefects</button >
+        <button class="filter" data-action="filter" data-filter="inquisitorialsquad">Inquisitorial Squad</button >
+        <button class="filter" data-action="filter" data-filter="quidditchplayer">Quidditch Player</button >
+      <!-- </select> -->
     </p>
+
+  </div>
 
     <!-- Sorting Selections -->
     <table id="list">
       <thead>
         <tr id="sorting">
-            <th data-action="sort" data-sort-direction="asc" data-sort="firstname">Firstname</th>
-          <th data-action="sort" data-sort-direction="asc" data-sort="lastname">Lastname</th>
+            <th data-action="sort" data-sort-direction="asc" data-sort="firstName">Firstname</th>
+          <th data-action="sort" data-sort-direction="asc" data-sort="lastName">Lastname</th>
           <th data-action="sort" data-sort-direction="asc" data-sort="house">House</th>
         </tr>
       </thead>
@@ -79,13 +83,13 @@
 
       <!-- Buttons for user interactivity -->
       <p> Click to make or revoke: </p>
-        <button class="makeprefect">Prefect</button>
+        <!-- <button class="makeprefect">Prefect</button>
         <button class="makesquad">Inquisitorial Squad</button>
-        <button class="makeexpel">Expel</button>
+        <button class="makeexpel">Expel</button> -->
       
 
       <!-- button for hacking the system-->
-      <button class="hackthesystem">hackthesystem</button>
+      <!-- <button class="hackthesystem">hackthesystem</button> -->
     </div>
   </div>
 
