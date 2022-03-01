@@ -7,8 +7,7 @@ let allStudents = [];
 let studentData;
 let bloodStatusData;
 
-// TODO : make my freaking popup work man
-let popUp = document.querySelector("#studentview");
+//let popUp = document.querySelector("#studentview");
 
 
 
@@ -22,6 +21,14 @@ house: "",
 gender: "",
 bloodstatus: ""
 };
+
+
+const settings = {
+  filterBy: "all",
+  sortBy: "firstName",
+  sortDir: "asc"
+
+}
 
 // Loading the window
 window.addEventListener("DOMContentLoaded", start);
@@ -127,30 +134,36 @@ function selectFilter( event ){
   console.log(`User selected ${filter}`);
 
   // WORKING
-  filterList(filter);
+  setFilter(filter);
+}
+
+function setFilter(filter) {
+  settings.filterBy = filter;
+buildList();
 }
 
 // For Filtering overall 
-function filterList( filterBy ) {
+function filterList( filteredList ) {
+  
+  // let filteredList = allStudents;
+
+
   // create a filtered list for houses
-  let filteredList = allStudents;
-
-
-  if (filterBy === "Gryffindor") {
+  if (settings.filterBy === "Gryffindor") {
     filteredList = allStudents.filter(isGryffindor);
 
-  }else if(filterBy === "Hufflepuff") {
+  }else if(settings.filterBy === "Hufflepuff") {
    filteredList = allStudents.filter(isHufflepuff);
 
-  }  else if(filterBy === "Ravenclaw") {
+  }  else if(settings.filterBy === "Ravenclaw") {
     filteredList = allStudents.filter(isRavenclaw);
 
-  } else if (filterBy === "Slytherin") {
+  } else if (settings.filterBy === "Slytherin") {
     filteredList = allStudents.filter(isSlytherin);
 
   }
 
-  displayList(filteredList);
+  return filteredList;
 }
 
 // For filtering the Gryffindor. 
@@ -194,26 +207,57 @@ function isSlytherin( student ) {
 // When user select a sort button
 function selectSort( event ){
   const sortBy = event.target.dataset.sort;
-  console.log(`User selected ${sortBy}`);
+  const sortDir = event.target.dataset.sortDirection;
 
-  sortList(sortBy);
+
+  // toggle the direction 
+  if ( sortDir === "asc") {
+    event.target.dataset.sortDirection = "desc";
+  } else {
+    event.target.dataset.sortDirection = "asc";
+  }
+
+  console.log(`User selected ${sortBy} - ${sortDir}`);
+  setSort(sortBy, sortDir);
+}
+
+function setSort(sortBy, sortDir) {
+settings.sortBy = sortBy;
+settings.sortDir = sortDir;
+buildList();
 }
 
 // For sorting
-function sortList(sortBy) {
-      let sortedList = allStudents;
+function sortList(sortedList) {
+      // let sortedList = allStudents;
+      // let direction = 1;
+
+      if (settings.sortDir === "desc") {
+        settings.direction = -1;
+      } else {
+        settings.direction = 1;
+      }
 
       sortedList = sortedList.sort (sortByProperty);
+
+      
   
     function sortByProperty (studentA, studentB) {
       
-      if (studentA[sortBy] < studentB[sortBy]) {
-        return -1;
+      if (studentA[settings.sortBy] < studentB[settings.sortBy]) {
+        return -1 * settings.direction;
       } else {
-        return 1;
+        return 1 * settings.direction;
       }
     }
 
+
+  return sortedList;
+}
+
+function buildList() {
+  const currentList = filterList(allStudents);
+  const sortedList = sortList( currentList);
 
   displayList(sortedList);
 }
