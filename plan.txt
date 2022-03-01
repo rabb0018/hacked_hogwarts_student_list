@@ -19,6 +19,10 @@ xx Filtering og Sorting
 
 ~~~~~~~~~~~~TODO:~~~~~~~~~~~~
 
+xx Toggle user interface
+
+xx Pop up needs data inside bro 
+
 xx Blood status
 
 xx Indhold i pop til at virke hahahaha
