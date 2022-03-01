@@ -16,16 +16,15 @@ xx Filtrering.
 xx Sorting
 Toggle sorting
 xx Filtering og Sorting
+xx Toggle direction 
 
 ~~~~~~~~~~~~TODO:~~~~~~~~~~~~
 
-xx Toggle user interface
-
 xx Pop up needs data inside bro 
 
-xx Blood status
-
 xx Indhold i pop til at virke hahahaha
+
+xx Blood status
 
 xx Prefects
 

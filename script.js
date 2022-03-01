@@ -208,7 +208,13 @@ function isSlytherin( student ) {
 function selectSort( event ){
   const sortBy = event.target.dataset.sort;
   const sortDir = event.target.dataset.sortDirection;
+ 
+// find old sortBy element and remove sortby
+const oldElement = document.querySelector(`[data-sort='${settings.sortBy}']`);
+oldElement.classList.remove("sortby");
 
+  // indicate active sort
+  event.target.classList.add("sortby");
 
   // toggle the direction 
   if ( sortDir === "asc") {
