@@ -66,3 +66,46 @@ button.closingbutton {
   height: 2em;
   width: 2em;
 }
+
+/* button color for squad */
+
+/* when the user click on squad */
+td[data-field="squad"]::after {
+  content: "Ⓘ";
+  color: green;
+  font-weight: 600;
+}
+
+/* when the user isnt in squad */
+td[data-field="squad"][data-squad="false"]::after {
+  color: black;
+  font-weight: 500;
+}
+
+/* button color for prefect */
+
+/* when user click */
+td[data-field="prefect"]::after {
+  content: "Ⓟ";
+  color: green;
+  font-weight: 600;
+}
+
+/* the color when the student isnt a prefect */
+td[data-field="prefect"][data-prefect="false"]::after {
+  color: black;
+  font-weight: 500;
+}
+
+/* when user click on expel */
+td[data-field="expel"]::after {
+  content: "Ⓔ";
+  color: red;
+  font-weight: 600;
+}
+
+/* the color when the student isnt expelled */
+td[data-field="expel"][data-expel="false"]::after {
+  color: black;
+  font-weight: 500;
+}

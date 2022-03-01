@@ -20,9 +20,9 @@ photo: "",
 house: "",
 gender: "",
 bloodstatus: "",
-squadProperty: false,
-prefectProperty: false,
-expelProperty: false
+squad: false,
+prefect: false,
+expel: false
 };
 
 
@@ -67,12 +67,12 @@ async function loadJson() {
     // fetching for student list
     const jsonData = await fetch(StudentListUrl);
     studentData = await jsonData.json();
-    console.table(studentData);
+    // console.table(studentData);
 
     // fetching for blood status
     const jsonFamiliesData = await fetch(bloodStatusUrl);
     bloodStatusData = await jsonFamiliesData.json();
-    console.table(bloodStatusData);
+    // console.table(bloodStatusData);
 
     prepareObjects();
 }
@@ -126,7 +126,7 @@ function prepareObjects(jsonData) {
     });
 
     // To see the array in table format in the console. 
-    console.table(allStudents);
+    // console.table(allStudents);
 
     // fixed so we filter and sort on the first load
     buildList();
@@ -293,31 +293,65 @@ function displayStudents ( student ) {
     clone.querySelector("[data-field=house]").textContent = student.house;
 
 
-    // For when user click on squad. 
-    if ( student.squadProperty === true) {
-      clone.querySelector("[data-field=squad]").textContent = "Ⓘ";
-    } else {
-      clone.querySelector("[data-field=squad]").textContent = "Ⓘwhite";
+    // SQUAD 
+    // if ( student.squadProperty === true) {
+    //   clone.querySelector("[data-field=squad]").textContent = "Ⓘ";
+    // } else {
+    //   clone.querySelector("[data-field=squad]").textContent = "Ⓘwhite";
 
-    }
+    // }
+
+
 
     // listens after click on star
-    clone.querySelector("[data-field=squad]").addEventListener("click", clickSquad);
+    // clone.querySelector("[data-field=squad]").addEventListener("click", clickSquad);
+
+    clone.querySelector("[data-field=squad]").dataset.squad = student.squad;
+      clone.querySelector("[data-field=squad]").addEventListener("click", clickSquad);
 
     function clickSquad() {
-      if (student.squadProperty === true) {
-        student.squadProperty = false;
+      if (student.squad === true) {
+        student.squad = false;
       } else {
-        student.squadProperty = true;
+        student.squad = true;
       }
 
       buildList();
     }
 
-    // For when user click on prefect.
+    // PREFECT
+      clone.querySelector("[data-field=prefect]").dataset.prefect = student.prefect;
+      clone.querySelector("[data-field=prefect]").addEventListener("click", clickPrefect);
 
 
-    // For when user click on expel.
+      function clickPrefect() {
+        if ( student.prefect === true) {
+          student.prefect = false;
+        } else{
+          student.prefect = true;
+
+        }
+
+        buildList();
+      } 
+
+
+    // EXPEL
+
+    clone.querySelector("[data-field=expel]").dataset.expel = student.expel;
+      clone.querySelector("[data-field=expel]").addEventListener("click", clickExpel);
+
+
+      function clickExpel() {
+        if ( student.expel === true) {
+          student.expel = false;
+        } else{
+          student.expel = true;
+
+        }
+
+        buildList();
+      } 
 
 
     //adding eventlistener for popup
