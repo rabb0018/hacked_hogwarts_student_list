@@ -293,13 +293,15 @@ function displayStudents ( student ) {
     clone.querySelector("[data-field=house]").textContent = student.house;
 
 
-
+    // For when user click on squad. 
     if ( student.squadProperty === true) {
       clone.querySelector("[data-field=squad]").textContent = "Ⓘ";
     } else {
       clone.querySelector("[data-field=squad]").textContent = "Ⓘwhite";
 
     }
+
+    // listens after click on star
     clone.querySelector("[data-field=squad]").addEventListener("click", clickSquad);
 
     function clickSquad() {
@@ -311,6 +313,11 @@ function displayStudents ( student ) {
 
       buildList();
     }
+
+    // For when user click on prefect.
+
+
+    // For when user click on expel.
 
 
     //adding eventlistener for popup
