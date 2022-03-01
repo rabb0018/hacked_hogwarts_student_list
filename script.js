@@ -19,7 +19,10 @@ lastName: "",
 photo: "",
 house: "",
 gender: "",
-bloodstatus: ""
+bloodstatus: "",
+squadProperty: false,
+prefectProperty: false,
+expelProperty: false
 };
 
 
@@ -125,7 +128,8 @@ function prepareObjects(jsonData) {
     // To see the array in table format in the console. 
     console.table(allStudents);
 
-    displayList(allStudents);
+    // fixed so we filter and sort on the first load
+    buildList();
 }
 
 // When user select a filter button 
@@ -287,6 +291,26 @@ function displayStudents ( student ) {
     clone.querySelector("[data-field=firstname]").textContent = student.firstName;
     clone.querySelector("[data-field=lastname]").textContent = student.lastName;
     clone.querySelector("[data-field=house]").textContent = student.house;
+
+
+
+    if ( student.squadProperty === true) {
+      clone.querySelector("[data-field=squad]").textContent = "Ⓘ";
+    } else {
+      clone.querySelector("[data-field=squad]").textContent = "Ⓘwhite";
+
+    }
+    clone.querySelector("[data-field=squad]").addEventListener("click", clickSquad);
+
+    function clickSquad() {
+      if (student.squadProperty === true) {
+        student.squadProperty = false;
+      } else {
+        student.squadProperty = true;
+      }
+
+      buildList();
+    }
 
 
     //adding eventlistener for popup
