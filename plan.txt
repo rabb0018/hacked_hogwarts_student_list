@@ -18,6 +18,15 @@ Toggle sorting
 xx Filtering og Sorting
 xx Toggle direction 
 
+
+~~~~~~~~ÕNGOING~~~~~~~~~
+
+xx Prefects
+
+xx Squad
+
+xx Expel
+
 ~~~~~~~~~~~~TODO:~~~~~~~~~~~~
 
 xx Pop up needs data inside bro 
@@ -25,12 +34,6 @@ xx Pop up needs data inside bro
 xx Indhold i pop til at virke hahahaha
 
 xx Blood status
-
-xx Prefects
-
-xx Squad
-
-xx Expel
 
 xx Search
 
