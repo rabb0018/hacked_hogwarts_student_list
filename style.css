@@ -67,7 +67,9 @@ button.closingbutton {
   width: 2em;
 }
 
-/* button color for squad */
+td[data-field="squad"] {
+  cursor: pointer;
+}
 
 /* when the user click on squad */
 td[data-field="squad"]::after {
@@ -82,7 +84,9 @@ td[data-field="squad"][data-squad="false"]::after {
   font-weight: 500;
 }
 
-/* button color for prefect */
+td[data-field="prefect"] {
+  cursor: pointer;
+}
 
 /* when user click */
 td[data-field="prefect"]::after {
@@ -95,6 +99,10 @@ td[data-field="prefect"]::after {
 td[data-field="prefect"][data-prefect="false"]::after {
   color: black;
   font-weight: 500;
+}
+
+td[data-field="expel"] {
+  cursor: pointer;
 }
 
 /* when user click on expel */
