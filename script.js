@@ -5,9 +5,6 @@ let allStudents = [];
 let studentData;
 let bloodStatusData;
 
-//let popUp = document.querySelector("#studentview");
-
-
 
 const Student = {
 firstName: "",
@@ -213,7 +210,16 @@ function filterList( filteredList ) {
 
   } else if (settings.filterBy === "muggleborns") {
     filteredList = allStudents.filter(isMuggle);
+
   } 
+
+  // TODO: not working ask for help
+  // else if (settings.filterBy === "prefects") {
+  //   filteredList = allStudents.filter(isPrefect);
+
+  // } else if (settings.filterBy === "inquisitorialsquad") {
+  //   filteredList = allStudents.filter(isSquad);
+  // }
 
   // TODO: filter for squad and prefect as well 
   return filteredList;
@@ -256,6 +262,14 @@ function isMuggle( student ) {
 
 
 // TODO: filtering the resposibilites
+// function isPrefect( student ) {
+//   return student.prefect === "prefects";
+// }
+
+// function isSquad( student ) {
+//   return student.squad === "inquisitorialsquad";
+// }
+
 
 
 // When user select a sort button
@@ -422,8 +436,10 @@ function displayStudents ( student ) {
 }
 
 // TODO: Popup student view
-function displayStudent(Student) {
-  console.log(Student);
+function displayStudent( student) {
+  console.log(student);
+
+  const popUp = document.querySelector("#studentview");
 
   document.querySelector("#studentview").classList.remove("hide");
   document.querySelector("#studentview .closingbutton").addEventListener("click", closePopup);
@@ -432,12 +448,11 @@ function displayStudent(Student) {
       document.querySelector("#studentview").classList.add("hide");
   }
 
-  // display student in poppity oppity
-  // document.querySelector(".firstname").textContent = Student.firstName;
-  // document.querySelector(".middlename").textContent = Student.middlename;
-  // document.querySelector(".nickname").textContent = Student.nickName;
-  // document.querySelector(".lastname").textContent = Student.lastName;
-
+  // TODO: display student in poppity oppity
+  // popUp.querySelector(".singlestudent .firstname").textContent = `${student.firstName}`;
+  // document.querySelector(".middlename").textContent = student.middlename;
+  // document.querySelector(".nickname").textContent = student.nickName;
+  // document.querySelector(".lastname").textContent = student.lastName;
 
   // TODO: make these work hehe 
   // document.querySelector(".bloodstatus").textContent = Student.bloodstatus;
