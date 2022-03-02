@@ -3,7 +3,6 @@
 
 // global variables 
 let allStudents = []; 
-
 let studentData;
 let bloodStatusData;
 
@@ -19,7 +18,7 @@ lastName: "",
 photo: "",
 house: "",
 gender: "",
-bloodstatus: "",
+bloodStatus: "",
 squad: false,
 prefect: false,
 expel: false
@@ -52,10 +51,12 @@ document.querySelectorAll("[data-action='filter']")
 
 document.querySelectorAll("[data-action='sort']")
 .forEach( button => button.addEventListener("click", selectSort));
-}
 
 // eventlisterne for search input
 document.querySelector("#search").addEventListener("input", searchFieldInput);
+}
+
+
 
 // Fetching url
 async function loadJson() {
@@ -75,7 +76,7 @@ async function loadJson() {
     // fetching for blood status
     const jsonFamiliesData = await fetch(bloodStatusUrl);
     bloodStatusData = await jsonFamiliesData.json();
-    // console.table(bloodStatusData);
+    console.table(bloodStatusData);
 
     prepareObjects();
 }
@@ -124,16 +125,20 @@ function prepareObjects(jsonData) {
         student.gender = gender.charAt(0).toUpperCase() + gender.substring(1).toLowerCase();
 
 
+        // Getting the blood status
+        student.bloodStatus = getBloodType(student.lastName);
+
       // push the students out
         allStudents.push(student);
     });
 
     // To see the array in table format in the console. 
-    // console.table(allStudents);
+    console.table(allStudents);
 
     // fixed so we filter and sort on the first load
     buildList();
 }
+
 
 function searchFieldInput(event) {
   // write to the list with only those elements in the allStudents array that has properties containing the search frase
@@ -144,6 +149,28 @@ function searchFieldInput(event) {
       .includes(event.target.value.toUpperCase());
     })
   );
+}
+
+// Getting the blood type
+function getBloodType(lastName) {
+    let blood;
+  
+    if (lastName) {
+      blood = "muggle-born";
+  
+      if (bloodStatusData.pure.includes(lastName)) {
+        blood = "pure-blood";
+      }
+  
+      if (bloodStatusData.half.includes(lastName)) {
+        blood = "half-blood";
+      }
+    } else {
+      blood = undefined;
+    }
+  
+    return blood;
+  
 }
 
 // When user select a filter button 
@@ -351,9 +378,8 @@ function displayStudents ( student ) {
 
 
     // EXPEL
-
     clone.querySelector("[data-field=expel]").dataset.expel = student.expel;
-      clone.querySelector("[data-field=expel]").addEventListener("click", clickExpel);
+    clone.querySelector("[data-field=expel]").addEventListener("click", clickExpel);
 
 
       function clickExpel() {

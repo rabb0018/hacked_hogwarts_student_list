@@ -17,14 +17,17 @@ xx Sorting
 Toggle sorting
 xx Filtering og Sorting
 xx Toggle direction 
+
 xx Prefects
-xx Squad
+
 xx Search
 
 
 ~~~~~~~~ÕNGOING~~~~~~~~~
 
-xx Expel
+xx Blood status
+
+xx Squad
 
 xx Pop up needs data inside bro 
 
@@ -32,9 +35,10 @@ xx Indhold i pop til at virke hahahaha
 
 xx style pop til house
 
-~~~~~~~~~~~~TODO:~~~~~~~~~~~~
 
-xx Blood status
+
+~~~~~~~~~~~~TODO:~~~~~~~~~~~~
+xx Expel
 
 xx counter
 
