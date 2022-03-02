@@ -363,10 +363,18 @@ function displayStudents ( student ) {
       if (student.bloodStatus === "purebloods" || student.house === "Slytherin") {
         student.squad = true;
       } else {
+
         student.squad = false;
+        document.querySelector("#notqualified").classList.remove("hide");
+        document.querySelector("#notqualified .closebutton").addEventListener("click", closeDialog);
       }
 
       buildList();
+
+      function closeDialog() {
+        document.querySelector("#notqualified").classList.add("hide");
+      document.querySelector("#notqualified .closebutton").removeEventListener("click", closeDialog);
+        }
     }
 
     // PREFECT
@@ -400,7 +408,7 @@ function displayStudents ( student ) {
         }
 
         buildList();
-      } 
+    } 
 
 
     //adding eventlistener for popup
