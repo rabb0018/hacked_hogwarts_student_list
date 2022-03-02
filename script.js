@@ -28,7 +28,7 @@ expel: false
 const settings = {
   filterBy: "all",
   sortBy: "firstName",
-  sortDir: "asc"
+  sortDir: "asc",
 
 }
 
@@ -156,14 +156,14 @@ function getBloodType(lastName) {
     let blood;
   
     if (lastName) {
-      blood = "muggle-born";
+      blood = "muggleborns";
   
       if (bloodStatusData.pure.includes(lastName)) {
-        blood = "pure-blood";
+        blood = "purebloods";
       }
   
       if (bloodStatusData.half.includes(lastName)) {
-        blood = "half-blood";
+        blood = "halfbloods";
       }
     } else {
       blood = undefined;
@@ -206,8 +206,15 @@ function filterList( filteredList ) {
   } else if (settings.filterBy === "Slytherin") {
     filteredList = allStudents.filter(isSlytherin);
 
-  }
+  } else if (settings.filterBy === "purebloods") {
+    filteredList = allStudents.filter(isPureblood);
 
+  } else if (settings.filterBy === "halfbloods") {
+    filteredList = allStudents.filter(isHalfblood);
+
+  } else if (settings.filterBy === "muggleborns") {
+    filteredList = allStudents.filter(isMuggle);
+  } 
   return filteredList;
 }
 
@@ -233,17 +240,17 @@ function isSlytherin( student ) {
 
 // TODO: filtering the bloodstatus
 
-// function isPureblood( student ) {
-//   return student.bloodstatus === "pure";
-// }
+function isPureblood( student ) {
+  return student.bloodStatus === "purebloods";
+}
 
-// function isHalfblood( student ) {
-//   return student.bloodstatus === "half";
-// }
+function isHalfblood( student ) {
+  return student.bloodStatus === "halfbloods";
+}
 
-// function isMuggle( student ) {
-//   return student.bloodstatus === "muggle";
-// }
+function isMuggle( student ) {
+  return student.bloodStatus === "muggleborns";
+}
 
 
 // TODO: filtering the resposibilites
