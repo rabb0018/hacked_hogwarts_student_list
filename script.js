@@ -328,7 +328,7 @@ function displayStudents ( student ) {
         if ( student.prefect === true) {
           student.prefect = false;
         } else{
-          student.prefect = true;
+          tryToMakeAPrefect(student);
 
         }
 
@@ -365,27 +365,86 @@ function displayStudents ( student ) {
 }
 
 // TODO: Popup student view
-function displayStudent(Student) {
-  console.log(Student);
+// function displayStudent(Student) {
+//   console.log(Student);
 
-  document.querySelector("#studentview").classList.remove("hide");
-  document.querySelector("#studentview .closingbutton").addEventListener("click", closePopup);
+//   document.querySelector("#studentview").classList.remove("hide");
+//   document.querySelector("#studentview .closingbutton").addEventListener("click", closePopup);
 
-  function closePopup() {
-      document.querySelector("#studentview").classList.add("hide");
-  }
+//   function closePopup() {
+//       document.querySelector("#studentview").classList.add("hide");
+//   }
 
-  // display student in poppity oppity
-  // document.querySelector(".firstname").textContent = Student.firstName;
-  // document.querySelector(".middlename").textContent = Student.middlename;
-  // document.querySelector(".nickname").textContent = Student.nickName;
-  // document.querySelector(".lastname").textContent = Student.lastName;
+//   // display student in poppity oppity
+//   // document.querySelector(".firstname").textContent = Student.firstName;
+//   // document.querySelector(".middlename").textContent = Student.middlename;
+//   // document.querySelector(".nickname").textContent = Student.nickName;
+//   // document.querySelector(".lastname").textContent = Student.lastName;
 
 
-  // TODO: make these work hehe 
-  // document.querySelector(".bloodstatus").textContent = Student.bloodstatus;
-  // document.querySelector(".studentphoto").textContent = Student.lastName;
-  // document.querySelector(".housephoto").textContent = Student.lastName;
+//   // TODO: make these work hehe 
+//   // document.querySelector(".bloodstatus").textContent = Student.bloodstatus;
+//   // document.querySelector(".studentphoto").textContent = Student.lastName;
+//   // document.querySelector(".housephoto").textContent = Student.lastName;
+
+// }
+
+
+function tryToMakeAPrefect(selectedStudent) {
+const studentsPerHouse = allStudents.filter((student) => student.house === selectedStudent.house);
+const prefectsPerHouse = studentsPerHouse.filter((student) => student.prefect);
+const numberOfPrefects = prefectsPerHouse.length;
+
+
+if ( numberOfPrefects >= 2) {
+  removePrefectAOrB(prefectsPerHouse[0], prefectsPerHouse[1]);
+} else {
+  makePrefect(selectedStudent);
+}
+
+  function removePrefectAOrB(prefectA, prefectB){
+
+// ask the user to ignore og remove a or b
+    document.querySelector("#remove_aorb").classList.remove("hide");
+    document.querySelector("#remove_aorb .closebutton").addEventListener("click", closeDialog);
+    document.querySelector("#remove_aorb  #removea").addEventListener("click", clickRemoveA);
+    document.querySelector("#remove_aorb  #removeb").addEventListener("click", clickRemoveB);
+
+
+// if ignore do nothing
+function closeDialog () {
+  document.querySelector("#remove_aorb").classList.add("hide");
+    document.querySelector("#remove_aorb .closebutton").removeEventListener("click", closeDialog);
+    document.querySelector("#remove_aorb  #removea").removeEventListener("click", clickRemoveA);
+    document.querySelector("#remove_aorb  #removeb").removeEventListener("click", clickRemoveB);
+}
+
+  function clickRemoveA() {
+  //  if remove A:
+  removePrefect(prefectA);
+  makePrefect(selectedStudent);
+  buildList();
+  closeDialog();
+
+}
+  function clickRemoveB() {
+  // else - if remove b: 
+  removePrefect(prefectB);
+  makePrefect(selectedStudent);
+  buildList();
+  closeDialog();
+    }
+
 
 }
 
+  function removePrefect(prefectStudent) {
+    prefectStudent.prefect = false;
+  }
+
+  function makePrefect(student) {
+    student.prefect = true;
+  }
+
+
+}
