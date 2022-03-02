@@ -54,6 +54,9 @@ document.querySelectorAll("[data-action='sort']")
 .forEach( button => button.addEventListener("click", selectSort));
 }
 
+// eventlisterne for search input
+document.querySelector("#search").addEventListener("input", searchFieldInput);
+
 // Fetching url
 async function loadJson() {
     console.log("load json URL");
@@ -130,6 +133,17 @@ function prepareObjects(jsonData) {
 
     // fixed so we filter and sort on the first load
     buildList();
+}
+
+function searchFieldInput(event) {
+  // write to the list with only those elements in the allStudents array that has properties containing the search frase
+  displayList(
+    allStudents.filter((elm) => {
+      // comparing in uppercase so that m is the same as M
+      return elm.firstName.toUpperCase().includes(event.target.value.toUpperCase()) || elm.lastName.toUpperCase()
+      .includes(event.target.value.toUpperCase());
+    })
+  );
 }
 
 // When user select a filter button 
@@ -307,7 +321,7 @@ function displayStudents ( student ) {
     // clone.querySelector("[data-field=squad]").addEventListener("click", clickSquad);
 
     clone.querySelector("[data-field=squad]").dataset.squad = student.squad;
-      clone.querySelector("[data-field=squad]").addEventListener("click", clickSquad);
+    clone.querySelector("[data-field=squad]").addEventListener("click", clickSquad);
 
     function clickSquad() {
       if (student.squad === true) {
@@ -365,31 +379,31 @@ function displayStudents ( student ) {
 }
 
 // TODO: Popup student view
-// function displayStudent(Student) {
-//   console.log(Student);
+function displayStudent(Student) {
+  console.log(Student);
 
-//   document.querySelector("#studentview").classList.remove("hide");
-//   document.querySelector("#studentview .closingbutton").addEventListener("click", closePopup);
+  document.querySelector("#studentview").classList.remove("hide");
+  document.querySelector("#studentview .closingbutton").addEventListener("click", closePopup);
 
-//   function closePopup() {
-//       document.querySelector("#studentview").classList.add("hide");
-//   }
+  function closePopup() {
+      document.querySelector("#studentview").classList.add("hide");
+  }
 
-//   // display student in poppity oppity
-//   // document.querySelector(".firstname").textContent = Student.firstName;
-//   // document.querySelector(".middlename").textContent = Student.middlename;
-//   // document.querySelector(".nickname").textContent = Student.nickName;
-//   // document.querySelector(".lastname").textContent = Student.lastName;
-
-
-//   // TODO: make these work hehe 
-//   // document.querySelector(".bloodstatus").textContent = Student.bloodstatus;
-//   // document.querySelector(".studentphoto").textContent = Student.lastName;
-//   // document.querySelector(".housephoto").textContent = Student.lastName;
-
-// }
+  // display student in poppity oppity
+  // document.querySelector(".firstname").textContent = Student.firstName;
+  // document.querySelector(".middlename").textContent = Student.middlename;
+  // document.querySelector(".nickname").textContent = Student.nickName;
+  // document.querySelector(".lastname").textContent = Student.lastName;
 
 
+  // TODO: make these work hehe 
+  // document.querySelector(".bloodstatus").textContent = Student.bloodstatus;
+  // document.querySelector(".studentphoto").textContent = Student.lastName;
+  // document.querySelector(".housephoto").textContent = Student.lastName;
+
+}
+
+// PREFECTS 
 function tryToMakeAPrefect(selectedStudent) {
 const studentsPerHouse = allStudents.filter((student) => student.house === selectedStudent.house);
 const prefectsPerHouse = studentsPerHouse.filter((student) => student.prefect);
@@ -416,7 +430,7 @@ if ( numberOfPrefects >= 2) {
 
 // if ignore do nothing
 function closeDialog () {
-  document.querySelector("#remove_aorb").classList.add("hide");
+    document.querySelector("#remove_aorb").classList.add("hide");
     document.querySelector("#remove_aorb .closebutton").removeEventListener("click", closeDialog);
     document.querySelector("#remove_aorb  #removea").removeEventListener("click", clickRemoveA);
     document.querySelector("#remove_aorb  #removeb").removeEventListener("click", clickRemoveB);
@@ -436,7 +450,7 @@ function closeDialog () {
   makePrefect(selectedStudent);
   buildList();
   closeDialog();
-    }
+  }
 
 }
 
