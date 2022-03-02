@@ -357,13 +357,14 @@ function displayStudents ( student ) {
     clone.querySelector("[data-field=squad]").dataset.squad = student.squad;
     clone.querySelector("[data-field=squad]").addEventListener("click", clickSquad);
 
+
+    // For when clicking on squad ( gives condition that if the student is pureblood OR slytherin they can be squad otherwise not)
     function clickSquad() {
-      if (student.squad === true) {
-        student.squad = false;
-      } else {
+      if (student.bloodStatus === "purebloods" || student.house === "Slytherin") {
         student.squad = true;
+      } else {
+        student.squad = false;
       }
-      
 
       buildList();
     }
