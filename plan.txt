@@ -19,6 +19,7 @@ xx Filtering og Sorting
 xx Toggle direction 
 xx Prefects
 xx Squad
+xx Search
 
 
 ~~~~~~~~ÕNGOING~~~~~~~~~
@@ -36,8 +37,6 @@ xx style pop til house
 xx Blood status
 
 xx counter
-
-xx Search
 
 xx Hacking
 
