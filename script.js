@@ -1,6 +1,5 @@
 "use strict";
 
-
 // global variables 
 let allStudents = []; 
 let studentData;
@@ -215,6 +214,8 @@ function filterList( filteredList ) {
   } else if (settings.filterBy === "muggleborns") {
     filteredList = allStudents.filter(isMuggle);
   } 
+
+  // TODO: filter for squad and prefect as well 
   return filteredList;
 }
 
@@ -238,16 +239,17 @@ function isSlytherin( student ) {
   return student.house === "Slytherin";
 }
 
-// TODO: filtering the bloodstatus
-
+// For filtering the purebloods
 function isPureblood( student ) {
   return student.bloodStatus === "purebloods";
 }
 
+// For filtering the halfbloods
 function isHalfblood( student ) {
   return student.bloodStatus === "halfbloods";
 }
 
+// For filtering the muggleborns
 function isMuggle( student ) {
   return student.bloodStatus === "muggleborns";
 }
@@ -349,8 +351,6 @@ function displayStudents ( student ) {
 
     // }
 
-
-
     // listens after click on star
     // clone.querySelector("[data-field=squad]").addEventListener("click", clickSquad);
 
@@ -363,6 +363,7 @@ function displayStudents ( student ) {
       } else {
         student.squad = true;
       }
+      
 
       buildList();
     }
