@@ -28,19 +28,17 @@ xx Squad skal virke med blood status og sltyherin
 
 
 ~~~~~~~~ÕNGOING~~~~~~~~~
-xx Pop up needs data inside bro 
 
-xx Indhold i pop til at virke hahahaha
+SPØRG OM HJÆLP TIL 
+- prefect skal virke på filter knapper
+- squad skal virke på filterknapper
+- xx Indhold i pop til at virke hahahaha
+
+
+
 
 xx Blood status vises i pop op 
-
-prefect skal virke på filter knapper
-
-squad skal virke på filterknapper
-
 xx style pop til house
-
-
 
 ~~~~~~~~~~~~TODO:~~~~~~~~~~~~
 xx Expel
