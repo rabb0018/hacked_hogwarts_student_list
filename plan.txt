@@ -22,6 +22,8 @@ xx Prefects
 
 xx Search
 
+blood status skal virke på filter knapper
+
 
 ~~~~~~~~ÕNGOING~~~~~~~~~
 xx Pop up needs data inside bro 
@@ -30,10 +32,11 @@ xx Indhold i pop til at virke hahahaha
 
 xx Blood status vises i pop op 
 
-blood status skal virke på filter knapper.
+prefect skal virke på filter knapper
+
+squad skal virke på filterknapper
 
 xx Squad skal virke med blood status
-
 
 xx style pop til house
 
