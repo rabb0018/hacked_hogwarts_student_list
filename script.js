@@ -410,6 +410,9 @@ if ( numberOfPrefects >= 2) {
     document.querySelector("#remove_aorb  #removea").addEventListener("click", clickRemoveA);
     document.querySelector("#remove_aorb  #removeb").addEventListener("click", clickRemoveB);
 
+    // Show name on buttons 
+    document.querySelector("#remove_aorb [data-field=prefectA").textContent = `${prefectA.firstName} ${prefectA.lastName}`;
+    document.querySelector("#remove_aorb [data-field=prefectB").textContent = `${prefectB.firstName} ${prefectB.lastName}`;
 
 // if ignore do nothing
 function closeDialog () {
@@ -434,7 +437,6 @@ function closeDialog () {
   buildList();
   closeDialog();
     }
-
 
 }
 
