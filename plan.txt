@@ -47,8 +47,6 @@ xx list of features / epic stories
 xx a can/can't list for each component or activity, 
 with a note with whether you know it or not
 
-
-
 xx Expel
 Filtering expelled vs non-expelled students 
 
