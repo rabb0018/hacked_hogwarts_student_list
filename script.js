@@ -129,7 +129,7 @@ function prepareObjects(jsonData) {
     });
 
     // To see the array in table format in the console. 
-    console.table(allStudents);
+    
 
     // fixed so we filter and sort on the first load
     buildList();
@@ -211,17 +211,16 @@ function filterList( filteredList ) {
   } else if (settings.filterBy === "muggleborns") {
     filteredList = allStudents.filter(isMuggle);
 
-  } 
+  } else if (settings.filterBy === "prefects") {
+    console.log("FILTER isPrefect",isPrefect)
+      filteredList = allStudents.filter(isPrefect);
 
-  // TODO: not working ask for help
-  // else if (settings.filterBy === "prefects") {
-  //   filteredList = allStudents.filter(isPrefect);
+  } else if (settings.filterBy === "inquisitorialsquad") {
+      filteredList = allStudents.filter(isSquad);
+  }
 
-  // } else if (settings.filterBy === "inquisitorialsquad") {
-  //   filteredList = allStudents.filter(isSquad);
-  // }
-
-  // TODO: filter for squad and prefect as well 
+  // TODO:  filter for squad and prefect as well---- not working ask for help
+  
   return filteredList;
 }
 
@@ -262,13 +261,15 @@ function isMuggle( student ) {
 
 
 // TODO: filtering the resposibilites
-// function isPrefect( student ) {
-//   return student.prefect === "prefects";
-// }
 
-// function isSquad( student ) {
-//   return student.squad === "inquisitorialsquad";
-// }
+// no need to make the === beacuse it is a true / false statement
+function isPrefect( student ) {
+  return student.prefect === true;
+}
+
+function isSquad( student ) {
+  return student.squad === true;
+}
 
 
 
@@ -340,7 +341,7 @@ function buildList() {
 function displayList(students) {
   // clear the list 
   document.querySelector("#list tbody").innerHTML = "";
-
+  //console.table(allStudents);
   // build a new list 
   students.forEach ( displayStudents );
 }
@@ -449,7 +450,7 @@ function displayStudent( student) {
   }
 
   // TODO: display student in poppity oppity
-  // popUp.querySelector(".singlestudent .firstname").textContent = `${student.firstName}`;
+  //  popUp.querySelector(".firstname").textContent = `${student.firstName}`;
   // document.querySelector(".middlename").textContent = student.middlename;
   // document.querySelector(".nickname").textContent = student.nickName;
   // document.querySelector(".lastname").textContent = student.lastName;
