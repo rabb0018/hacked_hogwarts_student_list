@@ -273,6 +273,7 @@ function isSquad( student ) {
 
 
 
+
 // When user select a sort button
 function selectSort( event ){
   const sortBy = event.target.dataset.sort;
