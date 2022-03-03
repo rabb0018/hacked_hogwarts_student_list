@@ -72,7 +72,7 @@ async function loadJson() {
     // fetching for blood status
     const jsonFamiliesData = await fetch(bloodStatusUrl);
     bloodStatusData = await jsonFamiliesData.json();
-    console.table(bloodStatusData);
+    // console.table(bloodStatusData);
 
     prepareObjects();
 }
@@ -129,7 +129,7 @@ function prepareObjects(jsonData) {
     });
 
     // To see the array in table format in the console. 
-    
+    console.table(allStudents);
 
     // fixed so we filter and sort on the first load
     buildList();
@@ -152,14 +152,14 @@ function getBloodType(lastName) {
     let blood;
   
     if (lastName) {
-      blood = "muggleborns";
+      blood = "Muggle";
   
       if (bloodStatusData.pure.includes(lastName)) {
-        blood = "purebloods";
+        blood = "Pure blood";
       }
   
       if (bloodStatusData.half.includes(lastName)) {
-        blood = "halfbloods";
+        blood = "Half blood";
       }
     } else {
       blood = undefined;
@@ -212,7 +212,6 @@ function filterList( filteredList ) {
     filteredList = allStudents.filter(isMuggle);
 
   } else if (settings.filterBy === "prefects") {
-    console.log("FILTER isPrefect",isPrefect)
       filteredList = allStudents.filter(isPrefect);
 
   } else if (settings.filterBy === "inquisitorialsquad") {
@@ -428,8 +427,8 @@ function displayStudents ( student ) {
 
 
     //adding eventlistener for popup
-    clone.querySelector("[data-field=firstname]").addEventListener("click", () => displayStudent(Student));
-    clone.querySelector("[data-field=lastname]").addEventListener("click", () => displayStudent(Student));
+    clone.querySelector("[data-field=firstname]").addEventListener("click", () => displayStudent(student));
+    clone.querySelector("[data-field=lastname]").addEventListener("click", () => displayStudent(student));
 
 
     // append clone to list
@@ -439,7 +438,7 @@ function displayStudents ( student ) {
 
 // TODO: Popup student view
 function displayStudent( student) {
-  console.log(student);
+  console.log("student",student);
 
   const popUp = document.querySelector("#studentview");
 
@@ -450,15 +449,20 @@ function displayStudent( student) {
       document.querySelector("#studentview").classList.add("hide");
   }
 
-  // TODO: display student in poppity oppity
-  //  popUp.querySelector(".firstname").textContent = `${student.firstName}`;
-  // document.querySelector(".middlename").textContent = student.middlename;
-  // document.querySelector(".nickname").textContent = student.nickName;
-  // document.querySelector(".lastname").textContent = student.lastName;
+  // display student in poppity oppity
+  popUp.querySelector(".firstname").textContent = `${student.firstName}`;
+  popUp.querySelector(".middlename").textContent = `${student.middleName}`;
+  popUp.querySelector(".nickname").textContent = `${student.nickName}`;
+  popUp.querySelector(".lastname").textContent = `${student.lastName}`;
+  popUp.querySelector(".bloodstatus").textContent = `${student.bloodStatus}`;
+  popUp.querySelector(".house").textContent = `${student.house}`;
+
 
   // TODO: make these work hehe 
-  // document.querySelector(".bloodstatus").textContent = Student.bloodstatus;
-  // document.querySelector(".studentphoto").textContent = Student.lastName;
+  popUp.querySelector(".studentphoto").src = student.photo;
+
+
+//  TODO: house crest and color
   // document.querySelector(".housephoto").textContent = Student.lastName;
 
 }
