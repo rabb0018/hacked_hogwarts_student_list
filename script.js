@@ -7,7 +7,6 @@ let expelledStudents = [];
 let studentData;
 let bloodStatusData;
 
-
 const Student = {
 firstName: "",
 middlename: "",
@@ -21,7 +20,6 @@ squad: false,
 prefect: false,
 expel: false
 };
-
 
 const settings = {
   filterBy: "all",
@@ -43,10 +41,12 @@ loadJson();
 
 // Eventlisterners for buttons
 function selectedbuttons() {
+
+  // eventlistener for filter
 document.querySelectorAll("[data-action='filter']")
 .forEach(button => button.addEventListener("click", selectFilter));
 
-
+// eventlistener for sort
 document.querySelectorAll("[data-action='sort']")
 .forEach( button => button.addEventListener("click", selectSort));
 
@@ -65,7 +65,6 @@ async function loadJson() {
     // fetching blood status information 
     const bloodStatusUrl = "https://petlatkea.dk/2021/hogwarts/families.json";
 
-    
     // fetching for student list
     const jsonData = await fetch(StudentListUrl);
     studentData = await jsonData.json();
@@ -137,7 +136,7 @@ function prepareObjects(jsonData) {
     buildList();
 }
 
-
+// Search field fucntion so the user can search on a students firstname og lastname
 function searchFieldInput(event) {
   // write to the list with only those elements in the allStudents array that has properties containing the search frase
   displayList(
@@ -154,14 +153,14 @@ function getBloodType(lastName) {
     let blood;
   
     if (lastName) {
-      blood = "Muggle";
+      blood = "muggleborns";
   
       if (bloodStatusData.pure.includes(lastName)) {
-        blood = "Pure blood";
+        blood = "purebloods";
       }
   
       if (bloodStatusData.half.includes(lastName)) {
-        blood = "Half blood";
+        blood = "halfbloods";
       }
     } else {
       blood = undefined;
@@ -180,6 +179,7 @@ function selectFilter( event ){
   setFilter(filter);
 }
 
+// setting the filter
 function setFilter(filter) {
   settings.filterBy = filter;
 buildList();
@@ -190,8 +190,7 @@ function filterList( filteredList ) {
   
   // let filteredList = allStudents;
 
-
-  // create a filtered list for houses
+  // create a filtered list for all of the buttons you wanna filter.
   if (settings.filterBy === "Gryffindor") {
     filteredList = allStudents.filter(isGryffindor);
 
@@ -219,11 +218,12 @@ function filterList( filteredList ) {
   } else if (settings.filterBy === "inquisitorialsquad") {
       filteredList = allStudents.filter(isSquad);
 
-  } else if (settings.filterBy === "expelledstudents") {
-    filteredList = allStudents.filter(isExpelled);
-  }
+  } 
+  // else if (settings.filterBy === "expelledstudents") {
+  //   filteredList = allStudents.filter(isExpelled);
+  // }
 
-  // TODO:  filter for squad and prefect as well---- not working ask for help
+  // TODO:  filter for  expelled og active students as well---- not working look at it again 
   
   return filteredList;
 }
@@ -263,24 +263,21 @@ function isMuggle( student ) {
   return student.bloodStatus === "muggleborns";
 }
 
-
-// TODO: filtering the resposibilites
-
-// no need to make the === beacuse it is a true / false statement
+// for filtering the prefects
+// comment to myself. No need to make the === beacuse it is a true / false statement, can be without it aswell
 function isPrefect( student ) {
   return student.prefect === true;
 }
 
+// for filtering the squad
 function isSquad( student ) {
   return student.squad === true;
 }
 
-
+// TODO: filtering the exeplled and acive students. 
 function isExpelled( student ) {
   return student.expel === true;
 }
-
-
 
 
 // When user select a sort button
@@ -306,13 +303,14 @@ oldElement.classList.remove("sortby");
   setSort(sortBy, sortDir);
 }
 
+// setting the sort function
 function setSort(sortBy, sortDir) {
 settings.sortBy = sortBy;
 settings.sortDir = sortDir;
 buildList();
 }
 
-// For sorting
+// For sorting the list
 function sortList(sortedList) {
       // let sortedList = allStudents;
       // let direction = 1;
@@ -340,6 +338,7 @@ function sortList(sortedList) {
   return sortedList;
 }
 
+// TODO: for making the list show?? Watch peter videos again to be sure what this function does
 function buildList() {
   const currentList = filterList(allStudents);
   const sortedList = sortList( currentList);
@@ -366,19 +365,6 @@ function displayStudents ( student ) {
     clone.querySelector("[data-field=firstname]").textContent = student.firstName;
     clone.querySelector("[data-field=lastname]").textContent = student.lastName;
     clone.querySelector("[data-field=house]").textContent = student.house;
-
-
-    // SQUAD 
-    // if ( student.squadProperty === true) {
-    //   clone.querySelector("[data-field=squad]").textContent = "Ⓘ";
-    // } else {
-    //   clone.querySelector("[data-field=squad]").textContent = "Ⓘwhite";
-
-    // }
-
-    // listens after click on star
-    // clone.querySelector("[data-field=squad]").addEventListener("click", clickSquad);
-
     clone.querySelector("[data-field=squad]").dataset.squad = student.squad;
     clone.querySelector("[data-field=squad]").addEventListener("click", clickSquad);
 
@@ -395,7 +381,8 @@ function displayStudents ( student ) {
       }
 
       buildList();
-
+      
+      // To close the modal
       function closeDialog() {
         document.querySelector("#notqualified").classList.add("hide");
       document.querySelector("#notqualified .closebutton").removeEventListener("click", closeDialog);
@@ -425,11 +412,13 @@ function displayStudents ( student ) {
 
 
       function clickExpel() {
+
+        // closure method I used before, that I dont need, beause i dont need an if sentence,
+        //  fordi den allerede er defineret når det er skrevet sådan ud.
         // if ( student.expel === true) {
         //   student.expel = false;
         // } else{
         //   // student.expel = true;
-
         // }
 
         const indexOfStudent = allStudents.indexOf(student);
@@ -441,6 +430,7 @@ function displayStudents ( student ) {
         console.table(expelledStudents);
 
         buildList();
+        
     } 
 
 
@@ -479,7 +469,6 @@ function displayStudent( student) {
   // TODO: make these work hehe 
   popUp.querySelector(".studentphoto").src = student.photo;
 
-
 //  TODO: house crest and color
   // document.querySelector(".housephoto").textContent = Student.lastName;
 
@@ -491,7 +480,7 @@ const studentsPerHouse = allStudents.filter((student) => student.house === selec
 const prefectsPerHouse = studentsPerHouse.filter((student) => student.prefect);
 const numberOfPrefects = prefectsPerHouse.length;
 
-
+// if sentence for the prefects, that if there are more than 2 prefect per house, the user need to choose remove a or b or try to choose a new one.
 if ( numberOfPrefects >= 2) {
   removePrefectAOrB(prefectsPerHouse[0], prefectsPerHouse[1]);
 } else {
@@ -510,7 +499,7 @@ if ( numberOfPrefects >= 2) {
     document.querySelector("#remove_aorb [data-field=prefectA").textContent = `${prefectA.firstName} ${prefectA.lastName}`;
     document.querySelector("#remove_aorb [data-field=prefectB").textContent = `${prefectB.firstName} ${prefectB.lastName}`;
 
-// if ignore do nothing
+// if ignore do nothing - Closing the modal
 function closeDialog () {
     document.querySelector("#remove_aorb").classList.add("hide");
     document.querySelector("#remove_aorb .closebutton").removeEventListener("click", closeDialog);
