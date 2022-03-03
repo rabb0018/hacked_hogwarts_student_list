@@ -36,11 +36,9 @@ xx studentphoto og housephoto skal vises i pop op
 xx style pop til house farver
 
 xx Expel
-~~~~~~~~~~~~TODO:~~~~~~~~~~~~
-
-
 Filtering expelled vs non-expelled students 
 
+~~~~~~~~~~~~TODO:~~~~~~~~~~~~
 xx counter
 
 xx Hacking
