@@ -35,6 +35,20 @@ xx Squad skal virke med blood status og sltyherin
 xx studentphoto og housephoto skal vises i pop op 
 xx style pop til house farver
 
+xx Wireframe
+
+xx activity diagrams
+- One overall one. 
+- expelling
+- prefects
+- blood status
+- hackstystem
+xx list of features / epic stories
+xx a can/can't list for each component or activity, 
+with a note with whether you know it or not
+
+
+
 xx Expel
 Filtering expelled vs non-expelled students 
 
