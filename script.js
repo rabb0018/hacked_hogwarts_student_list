@@ -2,6 +2,8 @@
 
 // global variables 
 let allStudents = []; 
+let expelledStudents = [];
+
 let studentData;
 let bloodStatusData;
 
@@ -216,6 +218,9 @@ function filterList( filteredList ) {
 
   } else if (settings.filterBy === "inquisitorialsquad") {
       filteredList = allStudents.filter(isSquad);
+
+  } else if (settings.filterBy === "expelledstudents") {
+    filteredList = allStudents.filter(isExpelled);
   }
 
   // TODO:  filter for squad and prefect as well---- not working ask for help
@@ -268,6 +273,11 @@ function isPrefect( student ) {
 
 function isSquad( student ) {
   return student.squad === true;
+}
+
+
+function isExpelled( student ) {
+  return student.expel === true;
 }
 
 
@@ -415,12 +425,20 @@ function displayStudents ( student ) {
 
 
       function clickExpel() {
-        if ( student.expel === true) {
-          student.expel = false;
-        } else{
-          student.expel = true;
+        // if ( student.expel === true) {
+        //   student.expel = false;
+        // } else{
+        //   // student.expel = true;
 
-        }
+        // }
+
+        const indexOfStudent = allStudents.indexOf(student);
+        console.log(indexOfStudent);
+
+        expelledStudents.push(allStudents.splice(indexOfStudent, 1));
+
+        //  showing the expelled student array
+        console.table(expelledStudents);
 
         buildList();
     } 
@@ -525,6 +543,4 @@ function closeDialog () {
   function makePrefect(student) {
     student.prefect = true;
   }
-
-
 }
