@@ -41,12 +41,15 @@ xx Blood status vises i pop op
 xx style pop til house
 
 ~~~~~~~~~~~~TODO:~~~~~~~~~~~~
+
+
 xx Expel
+
+Filtering expelled vs non-expelled students 
 
 xx counter
 
 xx Hacking
-
 
 xx add eget design
 - Find på animationer til knapper og hacking feature. 
