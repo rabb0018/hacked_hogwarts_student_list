@@ -32,9 +32,9 @@
 
       <!-- <select name="selectbloodstatus" id="selectbloodstatus"> -->
         <!-- <button  class="filter" data-action="filter" data-filter="bloodstatus" value="bloodstatus">All Blood Status</button > --> 
-         <button class="filter" data-action="filter" data-filter="purebloods">Pure-bloods</button >
-        <button class="filter" data-action="filter" data-filter="halfbloods">Half-bloods</button >
-        <button class="filter" data-action="filter" data-filter="muggleborns">Muggle-borns</button >
+         <button class="filter" data-action="filter" data-filter="Pure-blood">Pure-bloods</button >
+        <button class="filter" data-action="filter" data-filter="Half-blood">Half-bloods</button >
+        <button class="filter" data-action="filter" data-filter="Muggle-born">Muggle-borns</button >
        <!-- </select> -->
 
       <!-- <select name="selectresponsibilities" id="selectresponsibilities"> -->
@@ -92,19 +92,21 @@
       <p class="lastname"></p>
       <p class="bloodstatus"></p>
       <p class="house"></p>
+      <p class="squad"></p>
+      <p class="prefect"></p>
+      <p class="expel"></p>
       <img src="" alt="" class="studentphoto">
       <img src="" alt="" class="housephoto">
     </article>
+    
 
       <!-- Buttons for user interactivity -->
-      <p> Click to make or revoke: </p>
+      <!-- <p> Click to make or revoke: </p> -->
         <!-- <button class="makeprefect">Prefect</button>
         <button class="makesquad">Inquisitorial Squad</button>
         <button class="makeexpel">Expel</button> -->
-       
-
       <!-- button for hacking the system-->
-      <!-- <button class="hackthesystem">hackthesystem</button> -->
+      <button class="hackthesystem">hackthesystem</button>
     </div>
   </div>
 
@@ -128,6 +130,27 @@
         <button class="closebutton">X</button>
         <h1>Not allowed</h1>
         <p>Student is not qualified to be in the Inquisitorial Squad</p>
+      </div>
+    </div>
+
+
+    <!-- <div id="expelwarning" class="modal hide">
+      <div class="dialog">
+        <button class="closebutton">X</button>
+        <h1>Attention</h1>
+        <p>Expelled students cannot be inrolled again. <br>
+          <br>
+          Do you still want to expel this student?
+        </p>
+        <button id="yesexpel">Expel <span data-field="expelstudent"></span></button>
+      </div>
+    </div> -->
+
+    <div id="cannotexpel" class="modal hide">
+      <div class="dialog">
+        <button class="closebutton">X</button>
+        <h1>Ohhh!</h1>
+        <p>Can't expel this student, need the 7 horcruxes first!</p>
       </div>
     </div>
     

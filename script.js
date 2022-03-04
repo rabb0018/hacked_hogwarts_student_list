@@ -436,27 +436,33 @@ function displayStudents ( student ) {
 
 
       function clickExpel() {
+      // TODO: Not showing the expelled students for some reason? try to fix
+      
+      // if (student.expel === true) {
+      //   const indexOfStudent = allStudents.indexOf(student);
+      //   console.log(indexOfStudent);
+      //   expelledStudents.push(allStudents.splice(indexOfStudent, 1));
 
-        // closure method I used before, that I dont need, beause i dont need an if sentence,
-        //  fordi den allerede er defineret når det er skrevet sådan ud.
-        // if ( student.expel === true) {
-        //   student.expel = false;
-        // } else{
-        //   // student.expel = true;
-        // }
+      //   buildList();
+      // } else if (student.firstName === "Rabbia") {
+       
+      // } 
 
-        // TODO: Not showing the expelled students for some reason? try to fix
-
+      if (student.firstName === "Rabbia") {
+        document.querySelector("#cannotexpel").classList.remove("hide");
+        document.querySelector("#cannotexpel .closebutton").addEventListener("click", closeExpelDialog);
+      } else {
         const indexOfStudent = allStudents.indexOf(student);
         console.log(indexOfStudent);
-
         expelledStudents.push(allStudents.splice(indexOfStudent, 1));
 
-        //  showing the expelled student array
-        console.table(expelledStudents);
-
         buildList();
-        
+      }
+
+      function closeExpelDialog(){
+        document.querySelector("#cannotexpel").classList.add("hide");
+        document.querySelector("#cannotexpel .closebutton").removeEventListener("click", closeExpelDialog);
+      }
     } 
 
     //adding eventlistener for popup
@@ -514,6 +520,9 @@ function displayStudent( student) {
     popUp.querySelector(".housephoto").src = "house_crests/slytherin.png";
     popUp.querySelector(".dialogstudentinfo").style.backgroundColor = "green";
   }
+
+  // for hacking hohohoho
+  document.querySelector(".hackthesystem").addEventListener("click", hackTheSystem);
 
 }
 
@@ -575,4 +584,56 @@ function closeDialog () {
   function makePrefect(student) {
     student.prefect = true;
   }
+}
+
+
+
+function hackTheSystem() {
+console.log("Your ass got hacked");
+
+// show animation of voldermort and make a sound that is laughing
+
+addingMyNameToStudentList();
+bloodStatusRandomizer();
+squadTimelimit();
+
+const itsMeRabbia = addingMyNameToStudentList();
+allStudents.push(itsMeRabbia);
+buildList();
+
+
+// Make my own object student that can't be expelled
+function addingMyNameToStudentList() {
+console.log("Adding name");
+
+const myName = Object.create(allStudents);
+myName.firstName = "Rabbia";
+myName.middleName = "Yasmin";
+myName.nickName = "Rabse";
+myName.lastName = "Salim";
+// myName.photo ="/student_profile_pics/zabini_b.jpg";
+myName.house = "Hufflepuff";
+myName.gender = "girl";
+myName.bloodStatus = "Pure-blood";
+myName.squad = false;
+myName.prefect = true;
+myName.expel = false;
+
+return myName;
+
+}
+
+
+// bloodstatusrandomizerrr
+function bloodStatusRandomizer() {
+
+
+
+}
+
+// adding a student to the squad has a limited time and will be moved again. 
+function squadTimelimit() {
+
+}
+
 }
