@@ -169,14 +169,14 @@ function getBloodType(lastName) {
     let blood;
   
     if (lastName) {
-      blood = "muggleborns";
+      blood = "Muggle-born";
   
       if (bloodStatusData.pure.includes(lastName)) {
-        blood = "purebloods";
+        blood = "Pure-blood";
       }
   
       if (bloodStatusData.half.includes(lastName)) {
-        blood = "halfbloods";
+        blood = "Half-blood";
       }
     } else {
       blood = undefined;
@@ -219,13 +219,13 @@ function filterList( filteredList ) {
   } else if (settings.filterBy === "Slytherin") {
     filteredList = allStudents.filter(isSlytherin);
 
-  } else if (settings.filterBy === "purebloods") {
+  } else if (settings.filterBy === "Pure-blood") {
     filteredList = allStudents.filter(isPureblood);
 
-  } else if (settings.filterBy === "halfbloods") {
+  } else if (settings.filterBy === "Half-blood") {
     filteredList = allStudents.filter(isHalfblood);
 
-  } else if (settings.filterBy === "muggleborns") {
+  } else if (settings.filterBy === "Muggle-born") {
     filteredList = allStudents.filter(isMuggle);
 
   } else if (settings.filterBy === "prefects") {
@@ -235,9 +235,12 @@ function filterList( filteredList ) {
       filteredList = allStudents.filter(isSquad);
 
   } 
-  // else if (settings.filterBy === "expelledstudents") {
-  //   filteredList = allStudents.filter(isExpelled);
-  // }
+  else if (settings.filterBy === "activstudents") {
+    filteredList = allStudents.filter(isActive);
+  }
+  else if (settings.filterBy === "expelledstudents") {
+    filteredList = allStudents.filter(isExpelled);
+  }
 
   // TODO:  filter for  expelled og active students as well---- not working look at it again 
   
@@ -264,19 +267,19 @@ function isSlytherin( student ) {
   return student.house === "Slytherin";
 }
 
-// For filtering the purebloods
+// For filtering the pure-bloods
 function isPureblood( student ) {
-  return student.bloodStatus === "purebloods";
+  return student.bloodStatus === "Pure-blood";
 }
 
 // For filtering the halfbloods
 function isHalfblood( student ) {
-  return student.bloodStatus === "halfbloods";
+  return student.bloodStatus === "Half-blood";
 }
 
 // For filtering the muggleborns
 function isMuggle( student ) {
-  return student.bloodStatus === "muggleborns";
+  return student.bloodStatus === "Muggle-born";
 }
 
 // for filtering the prefects
@@ -290,7 +293,12 @@ function isSquad( student ) {
   return student.squad === true;
 }
 
-// TODO: filtering the exeplled and acive students. 
+//filtering acive students.
+function isActive( student ) {
+  return student.expel === false;
+}
+
+// filtering expelled students 
 function isExpelled( student ) {
   return student.expel === true;
 }
@@ -387,7 +395,7 @@ function displayStudents ( student ) {
 
     // For when clicking on squad ( gives condition that if the student is pureblood OR slytherin they can be squad otherwise not)
     function clickSquad() {
-      if (student.bloodStatus === "purebloods" || student.house === "Slytherin") {
+      if (student.bloodStatus === "Pure-blood" || student.house === "Slytherin") {
         student.squad = true;
       } else {
 
@@ -437,6 +445,8 @@ function displayStudents ( student ) {
         //   // student.expel = true;
         // }
 
+        // TODO: Not showing the expelled students for some reason? try to fix
+
         const indexOfStudent = allStudents.indexOf(student);
         console.log(indexOfStudent);
 
@@ -448,7 +458,6 @@ function displayStudents ( student ) {
         buildList();
         
     } 
-
 
     //adding eventlistener for popup
     clone.querySelector("[data-field=firstname]").addEventListener("click", () => displayStudent(student));
@@ -474,13 +483,19 @@ function displayStudent( student) {
   }
 
   // display student in poppity oppity
-  popUp.querySelector(".firstname").textContent = `${student.firstName}`;
-  popUp.querySelector(".middlename").textContent = `${student.middleName}`;
-  popUp.querySelector(".nickname").textContent = `${student.nickName}`;
-  popUp.querySelector(".lastname").textContent = `${student.lastName}`;
-  popUp.querySelector(".bloodstatus").textContent = `${student.bloodStatus}`;
-  popUp.querySelector(".house").textContent = `${student.house}`;
+  popUp.querySelector(".firstname").textContent = "Firstname:" + " " + `${student.firstName}`;
+  popUp.querySelector(".middlename").textContent = "Middlename:" + " " + `${student.middleName}`;
+  popUp.querySelector(".nickname").textContent = "Nickname:" + " " + `${student.nickName}`;
+  popUp.querySelector(".lastname").textContent = "Lastname:" + " " + `${student.lastName}`;
+  popUp.querySelector(".bloodstatus").textContent = "Bloodstatus:" + " " + `${student.bloodStatus}`;
+  popUp.querySelector(".prefect").textContent = "Prefect:" + " " + `${student.prefect}`;
+  popUp.querySelector(".squad").textContent = "Inquasitorial Squad:" + " " + `${student.squad}`;
+  popUp.querySelector(".expel").textContent = "Expelled:" + " " + `${student.expel}`;
+  popUp.querySelector(".house").textContent = "House:" + " " + `${student.house}`;
   popUp.querySelector(".studentphoto").src = `student_profile_pics/${student.photo}.png`;
+
+  // TODO: if sætning hvis de ingen middlename eller nickname har (lav hvis du har tiden)
+
 
 //  House crest and color
   if ( student.house === "Gryffindor") {
