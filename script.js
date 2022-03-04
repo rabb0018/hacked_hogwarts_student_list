@@ -626,9 +626,19 @@ return myName;
 
 // bloodstatusrandomizerrr
 function bloodStatusRandomizer() {
+  console.log("blood shit going on");
 
+  allStudents.forEach((student) => {
+    student.bloodStatus = getBloodType(student.lastName);
 
-
+    if (student.bloodStatus === "Pure-blood") {
+    student.bloodStatus = "Muggle-born"; 
+  } else if (student.bloodStatus === "Half-blood") {
+  student.bloodStatus = "Pure-blood";
+  } else if( student.bloodStatus === "Muggle-born") {
+    student.bloodStatus = "Half-blood";
+  }
+});
 }
 
 // adding a student to the squad has a limited time and will be moved again. 
