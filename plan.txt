@@ -31,11 +31,10 @@ xx Squad skal virke med blood status og sltyherin
 - xx Indhold i pop til at virke hahahaha
 xx studentphoto og housephoto skal vises i pop op 
 xx style pop til house farver
+- expel hacking working
 
 
 ~~~~~~~~ÕNGOING~~~~~~~~~
-
-
 xx Wireframe
 
 xx activity diagrams
