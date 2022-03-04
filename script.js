@@ -112,8 +112,24 @@ function prepareObjects(jsonData) {
         student.lastName = fullname.substring(fullname.lastIndexOf(" ") + 1, fullname.lastIndexOf(" ") + 2).toUpperCase() + fullname.substring(fullname.lastIndexOf(" ") + 2).toLowerCase();
 
         // Photo fixed
-        student.photo = `./student_profile_pics/${fullname.substring(fullname.lastIndexOf(" ") + 1).toLowerCase()}_${student.firstName.charAt(0).toLowerCase()}.jpg`;
- 
+        student.photo = getImage(student.lastName, student.firstName);
+
+        function getImage(lastname, firstname) {
+          let imgSrc;
+          if (lastname) {
+            const lastnameLower = lastname.toLowerCase();
+            const firstnameLower = firstname.toLowerCase();
+            const initialFirstName = firstname.slice(0, 1).toLowerCase();
+            if (lastname === "Patil") {
+              imgSrc = `${lastnameLower}_${firstnameLower}`;
+              return imgSrc;
+
+            } else {
+              imgSrc = `${lastnameLower}_${initialFirstName}`;
+              return imgSrc;
+            }
+          }
+        }
 
         // Cleaning house
         student.house = house.charAt(0).toUpperCase() + house.substring(1).toLowerCase();
@@ -464,13 +480,25 @@ function displayStudent( student) {
   popUp.querySelector(".lastname").textContent = `${student.lastName}`;
   popUp.querySelector(".bloodstatus").textContent = `${student.bloodStatus}`;
   popUp.querySelector(".house").textContent = `${student.house}`;
+  popUp.querySelector(".studentphoto").src = `student_profile_pics/${student.photo}.png`;
 
+//  House crest and color
+  if ( student.house === "Gryffindor") {
+    popUp.querySelector(".housephoto").src = "house_crests/gryffindor.png";
+    popUp.querySelector(".dialogstudentinfo").style.backgroundColor = "red";
 
-  // TODO: make these work hehe 
-  popUp.querySelector(".studentphoto").src = student.photo;
+  } else if ( student.house === "Hufflepuff") {
+    popUp.querySelector(".housephoto").src = "house_crests/hufflepuff.png";
+    popUp.querySelector(".dialogstudentinfo").style.backgroundColor = "yellow";
 
-//  TODO: house crest and color
-  // document.querySelector(".housephoto").textContent = Student.lastName;
+  } else if ( student.house === "Ravenclaw") {
+    popUp.querySelector(".housephoto").src = "house_crests/ravenclaw.png";
+    popUp.querySelector(".dialogstudentinfo").style.backgroundColor = "blue";
+
+  } else if ( student.house === "Slytherin") {
+    popUp.querySelector(".housephoto").src = "house_crests/slytherin.png";
+    popUp.querySelector(".dialogstudentinfo").style.backgroundColor = "green";
+  }
 
 }
 
