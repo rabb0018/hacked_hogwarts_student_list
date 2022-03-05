@@ -445,16 +445,36 @@ function displayStudents ( student ) {
 
 
       function clickExpel() {
+
+        //  const expelStudent = allStudents.filter ( student => student.expel);
+        //  const expelStudentNow = expelStudent.filter(student => student.expel === selectedStudent.expel);
+        // console.log(expelStudentNow);
+
+
       // TODO: Not showing the expelled students for some reason? try to fix
 
       if (student.firstName === "Rabbia") {
         document.querySelector("#cannotexpel").classList.remove("hide");
         document.querySelector("#cannotexpel .closebutton").addEventListener("click", closeExpelDialog);
       } else {
+        document.querySelector("#expelwarning").classList.remove("hide");
+        document.querySelector("#yesexpel").addEventListener("click", expelledNow);
+        //  document.querySelector("#expelwarning [data-field=expelstudent").textContent = `${expelStudentNow.fullname}`;
+
+        document.querySelector("#expelwarning .closebutton").addEventListener("click", expelledNow);
+
+        buildList();
+      }
+
+      function expelledNow() {
+        document.querySelector("#expelwarning").classList.add("hide");
+        document.querySelector("#expelwarning .closebutton").removeEventListener("click", expelledNow);
+
+
+
         const indexOfStudent = allStudents.indexOf(student);
         console.log(indexOfStudent);
         expelledStudents.push(allStudents.splice(indexOfStudent, 1));
-
         buildList();
       }
 
@@ -474,7 +494,7 @@ function displayStudents ( student ) {
 
 }
 
-// TODO: Popup student view
+// Popup student view
 function displayStudent( student) {
   console.log("student",student);
 
