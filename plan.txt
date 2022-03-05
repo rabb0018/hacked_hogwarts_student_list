@@ -36,15 +36,17 @@ xx Expel
 
 - blood
 
-
-~~~~~~~~ÕNGOING~~~~~~~~~
 xx Hacking
 - squad
 
+
+~~~~~~~~ÕNGOING~~~~~~~~~
 Filtering expelled vs non-expelled students 
 
-~~~~~~~~~~~~TODO:~~~~~~~~~~~~
 xx counter
+
+~~~~~~~~~~~~TODO:~~~~~~~~~~~~
+
 
 
 
