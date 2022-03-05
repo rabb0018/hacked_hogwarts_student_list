@@ -404,6 +404,14 @@ function displayStudents ( student ) {
         document.querySelector("#notqualified .closebutton").addEventListener("click", closeDialog);
       }
 
+
+      // trying to change the outcome to yes or no - Not working
+      // if (student.squad == false) {
+      //   student.squad = "No";
+      // } else if (student.squad == true) {
+      //   student.squad = "Yes";
+      // }
+
       buildList();
       
       // To close the modal
@@ -419,8 +427,9 @@ function displayStudents ( student ) {
 
 
       function clickPrefect() {
-        if ( student.prefect === true) {
+        if ( student.prefect === true ) {
           student.prefect = false;
+  
         } else{
           tryToMakeAPrefect(student);
 
@@ -437,16 +446,6 @@ function displayStudents ( student ) {
 
       function clickExpel() {
       // TODO: Not showing the expelled students for some reason? try to fix
-      
-      // if (student.expel === true) {
-      //   const indexOfStudent = allStudents.indexOf(student);
-      //   console.log(indexOfStudent);
-      //   expelledStudents.push(allStudents.splice(indexOfStudent, 1));
-
-      //   buildList();
-      // } else if (student.firstName === "Rabbia") {
-       
-      // } 
 
       if (student.firstName === "Rabbia") {
         document.querySelector("#cannotexpel").classList.remove("hide");
@@ -494,9 +493,28 @@ function displayStudent( student) {
   popUp.querySelector(".nickname").textContent = "Nickname:" + " " + `${student.nickName}`;
   popUp.querySelector(".lastname").textContent = "Lastname:" + " " + `${student.lastName}`;
   popUp.querySelector(".bloodstatus").textContent = "Bloodstatus:" + " " + `${student.bloodStatus}`;
-  popUp.querySelector(".prefect").textContent = "Prefect:" + " " + `${student.prefect}`;
-  popUp.querySelector(".squad").textContent = "Inquasitorial Squad:" + " " + `${student.squad}`;
-  popUp.querySelector(".expel").textContent = "Expelled:" + " " + `${student.expel}`;
+
+  // If sentences to show yes and no isntead of true and false! WOKRING HALLELUJA 
+  if (student.prefect == true){
+    popUp.querySelector(".prefect").textContent = "Prefect:" + " " + "Yes";
+  } else if (student.prefect == false) {
+    popUp.querySelector(".prefect").textContent = "Prefect:" + " " + "No";
+  }
+
+  if (student.squad == true) {
+    popUp.querySelector(".squad").textContent = "Inquasitorial Squad:" + " " + "Yes";
+
+  } else if (student.squad == false) {
+    popUp.querySelector(".squad").textContent = "Inquasitorial Squad:" + " " + "No";
+  }
+
+  if (student.expel == true) {
+    popUp.querySelector(".expel").textContent = "Expelled:" + " " + "Yes";
+
+  } else if (student.expel == false) {
+    popUp.querySelector(".expel").textContent = "Expelled:" + " " + "No";
+  }
+
   popUp.querySelector(".house").textContent = "House:" + " " + `${student.house}`;
   popUp.querySelector(".studentphoto").src = `student_profile_pics/${student.photo}.png`;
 
