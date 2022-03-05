@@ -19,33 +19,21 @@
 
     <!-- filtering selections -->
     <div id="filter">
+
     <p>
       Filter by:      
-      <!-- <select name="selecthouse" id="selecthouse"> -->
-        <!-- <button class="filter" data-action="filter" data-filter="house" value="house">All Houses</button > -->
         <button class="filter" data-action="filter" data-filter="*">All</button>
         <button class="filter" data-action="filter" data-filter="Gryffindor">Gryffindor</button >
         <button class="filter" data-action="filter" data-filter="Hufflepuff">Hufflepuff</button >
         <button class="filter" data-action="filter" data-filter="Ravenclaw">Ravenclaw</button >
         <button class="filter" data-action="filter" data-filter="Slytherin">Slytherin</button >
-      <!-- </select> -->
-
-      <!-- <select name="selectbloodstatus" id="selectbloodstatus"> -->
-        <!-- <button  class="filter" data-action="filter" data-filter="bloodstatus" value="bloodstatus">All Blood Status</button > --> 
-         <button class="filter" data-action="filter" data-filter="Pure-blood">Pure-bloods</button >
+        <button class="filter" data-action="filter" data-filter="Pure-blood">Pure-bloods</button >
         <button class="filter" data-action="filter" data-filter="Half-blood">Half-bloods</button >
         <button class="filter" data-action="filter" data-filter="Muggle-born">Muggle-borns</button >
-       <!-- </select> -->
-
-      <!-- <select name="selectresponsibilities" id="selectresponsibilities"> -->
-        <!-- <button  class="filter" data-action="filter" data-filter="house" value="responsibilites">All Responsibilites</button > -->
         <button class="filter" data-action="filter" data-filter="prefects">Prefects</button >
-        <button class="filter" data-action="filter" data-filter="inquisitorialsquad">Inquisitorial Squad</button >
-        <!-- <button class="filter" data-action="filter" data-filter="quidditchplayer">Quidditch Player</button > -->
-      <!-- </select> -->
-
-      <button class="filter" data-action="filter" data-filter="activstudents">Active Students</button >
-      <button class="filter" data-action="filter" data-filter="expelledstudents">Expelled Students</button >
+        <button class="filter" data-action="filter" data-filter="inquisitorialsquad">Inquisitorial Squad</button>
+        <button class="filter" data-action="filter" data-filter="activstudents">Active Students</button >
+        <button class="filter" data-action="filter" data-filter="expelledstudents">Expelled Students</button >
     </p>
 
   </div>
@@ -99,17 +87,11 @@
       <img src="" alt="" class="housephoto">
     </article>
     
-
-      <!-- Buttons for user interactivity -->
-      <!-- <p> Click to make or revoke: </p> -->
-        <!-- <button class="makeprefect">Prefect</button>
-        <button class="makesquad">Inquisitorial Squad</button>
-        <button class="makeexpel">Expel</button> -->
-      <!-- button for hacking the system-->
       <button class="hackthesystem">hackthesystem</button>
     </div>
   </div>
 
+  <!-- For removing a prefect -->
       <div id="remove_aorb" class="modal hide">
       <div class="dialog">
         <button class="closebutton">X</button>
@@ -124,7 +106,7 @@
       </div>
     </div>
 
-
+    <!-- When a student isn't qualified for the squad -->
     <div id="notqualified" class="modal hide">
       <div class="dialog">
         <button class="closebutton">X</button>
@@ -133,7 +115,7 @@
       </div>
     </div>
 
-
+    <!-- For when expelling a student -->
     <div id="expelwarning" class="modal hide">
       <div class="dialog">
         <button class="closebutton">X</button>
@@ -145,7 +127,8 @@
         <button id="yesexpel">Expel <span data-field="expelstudent"></span></button>
       </div>
     </div>
-
+    
+ <!-- For the hacking, where user can't expel me -->
     <div id="cannotexpel" class="modal hide">
       <div class="dialog">
         <button class="closebutton">X</button>

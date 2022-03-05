@@ -35,6 +35,7 @@ window.addEventListener("DOMContentLoaded", start);
 function start() {
 console.log("start");
 
+// Calling the functions
 selectedbuttons();
 loadJson();
 }
@@ -55,11 +56,10 @@ document.querySelector("#search").addEventListener("input", searchFieldInput);
 }
 
 
-
-// Fetching url
+// Fetching urls
 async function loadJson() {
-    console.log("load json URL");
-    // fetching student list
+    // console.log("load json URL");
+    // fetching student list information
     const StudentListUrl = "https://petlatkea.dk/2021/hogwarts/students.json";
 
     // fetching blood status information 
@@ -68,12 +68,10 @@ async function loadJson() {
     // fetching for student list
     const jsonData = await fetch(StudentListUrl);
     studentData = await jsonData.json();
-    // console.table(studentData);
 
     // fetching for blood status
     const jsonFamiliesData = await fetch(bloodStatusUrl);
     bloodStatusData = await jsonFamiliesData.json();
-    // console.table(bloodStatusData);
 
     prepareObjects();
 }
@@ -123,7 +121,6 @@ function prepareObjects(jsonData) {
             if (lastname === "Patil") {
               imgSrc = `${lastnameLower}_${firstnameLower}`;
               return imgSrc;
-
             } else {
               imgSrc = `${lastnameLower}_${initialFirstName}`;
               return imgSrc;
@@ -146,7 +143,7 @@ function prepareObjects(jsonData) {
     });
 
     // To see the array in table format in the console. 
-    console.table(allStudents);
+    // console.table(allStudents);
 
     // fixed so we filter and sort on the first load
     buildList();
@@ -189,7 +186,7 @@ function getBloodType(lastName) {
 // When user select a filter button 
 function selectFilter( event ){
   const filter = event.target.dataset.filter;
-  console.log(`User selected ${filter}`);
+  // console.log(`User selected ${filter}`);
 
   // WORKING
   setFilter(filter);
@@ -203,8 +200,6 @@ buildList();
 
 // For Filtering overall 
 function filterList( filteredList ) {
-  
-  // let filteredList = allStudents;
 
   // create a filtered list for all of the buttons you wanna filter.
   if (settings.filterBy === "Gryffindor") {
@@ -234,11 +229,10 @@ function filterList( filteredList ) {
   } else if (settings.filterBy === "inquisitorialsquad") {
       filteredList = allStudents.filter(isSquad);
 
-  } 
-  else if (settings.filterBy === "activstudents") {
+  } else if (settings.filterBy === "activstudents") {
     filteredList = allStudents.filter(isActive);
-  }
-  else if (settings.filterBy === "expelledstudents") {
+
+  } else if (settings.filterBy === "expelledstudents") {
     filteredList = allStudents.filter(isExpelled);
   }
 
@@ -293,7 +287,7 @@ function isSquad( student ) {
   return student.squad === true;
 }
 
-//filtering acive students.
+//filtering active students.
 function isActive( student ) {
   return student.expel === false;
 }
@@ -302,7 +296,6 @@ function isActive( student ) {
 function isExpelled( student ) {
   return student.expel === true;
 }
-
 
 // When user select a sort button
 function selectSort( event ){
@@ -323,7 +316,7 @@ oldElement.classList.remove("sortby");
     event.target.dataset.sortDirection = "asc";
   }
 
-  console.log(`User selected ${sortBy} - ${sortDir}`);
+  // console.log(`User selected ${sortBy} - ${sortDir}`);
   setSort(sortBy, sortDir);
 }
 
@@ -404,14 +397,6 @@ function displayStudents ( student ) {
         document.querySelector("#notqualified .closebutton").addEventListener("click", closeDialog);
       }
 
-
-      // trying to change the outcome to yes or no - Not working
-      // if (student.squad == false) {
-      //   student.squad = "No";
-      // } else if (student.squad == true) {
-      //   student.squad = "Yes";
-      // }
-
       buildList();
       
       // To close the modal
@@ -438,14 +423,13 @@ function displayStudents ( student ) {
         buildList();
       } 
 
-
     // EXPEL
     clone.querySelector("[data-field=expel]").dataset.expel = student.expel;
     clone.querySelector("[data-field=expel]").addEventListener("click", clickExpel);
 
-
       function clickExpel() {
 
+        // Not working - Couldn't get to show the name in the modal for which student the user is expelling...
         //  const expelStudent = allStudents.filter ( student => student.expel);
         //  const expelStudentNow = expelStudent.filter(student => student.expel === selectedStudent.expel);
         // console.log(expelStudentNow);
@@ -453,6 +437,7 @@ function displayStudents ( student ) {
 
       // TODO: Not showing the expelled students for some reason? try to fix
 
+      // For hacking, can't expel me.
       if (student.firstName === "Rabbia") {
         document.querySelector("#cannotexpel").classList.remove("hide");
         document.querySelector("#cannotexpel .closebutton").addEventListener("click", closeExpelDialog);
@@ -466,6 +451,7 @@ function displayStudents ( student ) {
         buildList();
       }
 
+      // Button for expelling the student.
       function expelledNow() {
         document.querySelector("#expelwarning").classList.add("hide");
         document.querySelector("#expelwarning .closebutton").removeEventListener("click", expelledNow);
@@ -477,6 +463,7 @@ function displayStudents ( student ) {
         buildList();
       }
 
+      // for closing the expelwarnin dialog
       function closeExpelDialog(){
         document.querySelector("#cannotexpel").classList.add("hide");
         document.querySelector("#cannotexpel .closebutton").removeEventListener("click", closeExpelDialog);
@@ -513,9 +500,10 @@ function displayStudent( student) {
   popUp.querySelector(".lastname").textContent = "Lastname:" + " " + `${student.lastName}`;
   popUp.querySelector(".bloodstatus").textContent = "Bloodstatus:" + " " + `${student.bloodStatus}`;
 
-  // If sentences to show yes and no isntead of true and false! WOKRING HALLELUJA 
+  // If sentences to show yes and no instead of true and false! WOKRING HALLELUJA 
   if (student.prefect == true){
     popUp.querySelector(".prefect").textContent = "Prefect:" + " " + "Yes";
+
   } else if (student.prefect == false) {
     popUp.querySelector(".prefect").textContent = "Prefect:" + " " + "No";
   }
@@ -534,11 +522,11 @@ function displayStudent( student) {
     popUp.querySelector(".expel").textContent = "Expelled:" + " " + "No";
   }
 
+  // Showing pictures
   popUp.querySelector(".house").textContent = "House:" + " " + `${student.house}`;
   popUp.querySelector(".studentphoto").src = `student_profile_pics/${student.photo}.png`;
 
   // TODO: if sætning hvis de ingen middlename eller nickname har (lav hvis du har tiden)
-
 
 //  House crest and color
   if ( student.house === "Gryffindor") {
@@ -624,23 +612,23 @@ function closeDialog () {
 }
 
 
-
+// for hacking the system!
 function hackTheSystem() {
 console.log("Your ass got hacked");
 
-// show animation of voldermort and make a sound that is laughing
+// show animation of voldermort and make a sound that is laughing Avra Kadabra?
 
-
+// For calling the hacking features
 addingMyNameToStudentList();
 bloodStatusRandomizer();
 squadTimelimit();
 
+// For pushing my name into the student list
 const itsMeRabbia = addingMyNameToStudentList();
 allStudents.push(itsMeRabbia);
 buildList();
 
 }
-
 
 // Make my own object student that can't be expelled
 function addingMyNameToStudentList() {
@@ -662,7 +650,6 @@ function addingMyNameToStudentList() {
   
   }
   
-  
   // bloodstatusrandomizerrr
   function bloodStatusRandomizer() {
   
@@ -682,7 +669,6 @@ function addingMyNameToStudentList() {
     }
 
   });
-  
 
   }
   
