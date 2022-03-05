@@ -630,6 +630,7 @@ console.log("Your ass got hacked");
 
 // show animation of voldermort and make a sound that is laughing
 
+
 addingMyNameToStudentList();
 bloodStatusRandomizer();
 squadTimelimit();
@@ -638,53 +639,63 @@ const itsMeRabbia = addingMyNameToStudentList();
 allStudents.push(itsMeRabbia);
 buildList();
 
+}
+
 
 // Make my own object student that can't be expelled
 function addingMyNameToStudentList() {
-console.log("Adding name");
 
-const myName = Object.create(allStudents);
-myName.firstName = "Rabbia";
-myName.middleName = "Yasmin";
-myName.nickName = "Rabse";
-myName.lastName = "Salim";
-// myName.photo ="/student_profile_pics/zabini_b.jpg";
-myName.house = "Hufflepuff";
-myName.gender = "girl";
-myName.bloodStatus = "Pure-blood";
-myName.squad = false;
-myName.prefect = true;
-myName.expel = false;
-
-return myName;
-
-}
-
-
-// bloodstatusrandomizerrr
-function bloodStatusRandomizer() {
-  console.log("blood shit going on");
-
-  allStudents.forEach((student) => {
-    student.bloodStatus = getBloodType(student.lastName);
-
-    if (student.bloodStatus === "Pure-blood") {
-      const randomBlood = Math.floor(Math.random() * 2);
-      const bloodTypes = ["Muggle-born", "Half-blood"];
-      student.bloodStatus = bloodTypes[randomBlood]; 
-
-  } else if (student.bloodStatus === "Half-blood") {
-  student.bloodStatus = "Pure-blood";
-
-  } else if( student.bloodStatus === "Muggle-born") {
-    student.bloodStatus = "Pure-blood";
+  const myName = Object.create(allStudents);
+  myName.firstName = "Rabbia";
+  myName.middleName = "Yasmin";
+  myName.nickName = "Rabse";
+  myName.lastName = "Salim";
+  // myName.photo ="/student_profile_pics/zabini_b.jpg";
+  myName.house = "Hufflepuff";
+  myName.gender = "girl";
+  myName.bloodStatus = "Pure-blood";
+  myName.squad = false;
+  myName.prefect = true;
+  myName.expel = false;
+  
+  return myName;
+  
   }
-});
-}
+  
+  
+  // bloodstatusrandomizerrr
+  function bloodStatusRandomizer() {
+  
+    allStudents.forEach((student) => {
+      student.bloodStatus = getBloodType(student.lastName);
+  
+      if (student.bloodStatus === "Pure-blood") {
+        const randomBlood = Math.floor(Math.random() * 2);
+        const bloodTypes = ["Muggle-born", "Half-blood"];
+        student.bloodStatus = bloodTypes[randomBlood]; 
+  
+    } else if (student.bloodStatus === "Half-blood") {
+    student.bloodStatus = "Pure-blood";
+  
+    } else if( student.bloodStatus === "Muggle-born") {
+      student.bloodStatus = "Pure-blood";
+    }
 
-// adding a student to the squad has a limited time and will be moved again. 
-function squadTimelimit() {
+  });
+  
 
-}
+  }
+  
+  // adding a student to the squad has a limited time and will be moved again. 
+  function squadTimelimit() {
 
+    allStudents.forEach((student) => {
+      student.squad = false;
+
+      buildList();
+  });
+
+  setTimeout(squadTimelimit, 5000);
+
+  // TODO: Add sound effect?
 }
