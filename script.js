@@ -470,11 +470,10 @@ function displayStudents ( student ) {
         document.querySelector("#expelwarning").classList.add("hide");
         document.querySelector("#expelwarning .closebutton").removeEventListener("click", expelledNow);
 
-
-
         const indexOfStudent = allStudents.indexOf(student);
         console.log(indexOfStudent);
         expelledStudents.push(allStudents.splice(indexOfStudent, 1));
+
         buildList();
       }
 
@@ -670,11 +669,15 @@ function bloodStatusRandomizer() {
     student.bloodStatus = getBloodType(student.lastName);
 
     if (student.bloodStatus === "Pure-blood") {
-    student.bloodStatus = "Muggle-born"; 
+      const randomBlood = Math.floor(Math.random() * 2);
+      const bloodTypes = ["Muggle-born", "Half-blood"];
+      student.bloodStatus = bloodTypes[randomBlood]; 
+
   } else if (student.bloodStatus === "Half-blood") {
   student.bloodStatus = "Pure-blood";
+
   } else if( student.bloodStatus === "Muggle-born") {
-    student.bloodStatus = "Half-blood";
+    student.bloodStatus = "Pure-blood";
   }
 });
 }
