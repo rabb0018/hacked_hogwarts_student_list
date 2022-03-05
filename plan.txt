@@ -1,54 +1,8 @@
-Overall plan yall 
-
-~~~~~~~~~~CHECKED~~~~~~~~~~
-xx HTML 
--  Få overskrifter og knapper vist frem- Check
-- Få firstname, lastname og house view vist frem. Check
-- copy paste css fra animalbase (midlertidig løsning) Check
-- Add knapper, popup osv. check
-xx Læse blood status fil ind inden alt andet ( Kig på race conditions examples. ) check
-xx Få Pop up til at virke først check
-xx Filtrering. 
-- hardcoding for house - Check
-- make filter either gryf, huff, rav or slyth. 
-- add user interactivity
-- cleanup
-xx Sorting
-Toggle sorting
-xx Filtering og Sorting
-xx Toggle direction 
-
-xx Prefects
-
-xx Search
-
-blood status skal virke på filter knapper
-
-xx Squad skal virke med blood status og sltyherin
-
-- prefect skal virke på filter knapper
-- squad skal virke på filterknapper
-- xx Indhold i pop til at virke hahahaha
-xx studentphoto og housephoto skal vises i pop op 
-xx style pop til house farver
-- expel hacking working
-xx Expel
-
-- blood
-
-xx Hacking
-- squad
-
-
 ~~~~~~~~ÕNGOING~~~~~~~~~
 Filtering expelled vs non-expelled students 
 
 xx counter
-
 ~~~~~~~~~~~~TODO:~~~~~~~~~~~~
-
-
-
 
 xx add eget design
 - Find på animationer til knapper og hacking feature. 
