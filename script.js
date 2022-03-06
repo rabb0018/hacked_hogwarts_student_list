@@ -355,6 +355,24 @@ function sortList(sortedList) {
   return sortedList;
 }
 
+function displayCounter() {
+
+ document.querySelector(".gryffindorcounter").textContent = allStudents.filter((student) => student.house === "Gryffindor").length;
+ document.querySelector(".hufflepuffcounter").textContent = allStudents.filter((student) => student.house === "Hufflepuff").length;
+ document.querySelector(".ravenclawcounter").textContent = allStudents.filter((student) => student.house === "Ravenclaw").length;
+ document.querySelector(".slytherincounter").textContent = allStudents.filter((student) => student.house === "Slytherin").length;
+
+ const activeStudents = allStudents.filter((student) => !student.expelled).length;
+
+//  not working - ehhhhh
+const expelledStudentss = allStudents.filter((student) => student.expelled).length;
+
+ document.querySelector(".activestudentscounter").textContent = activeStudents;
+document.querySelector(".expelledstudentscounter").textContent = expelledStudentss;
+
+
+}
+
 // TODO: for making the list show?? Watch peter videos again to be sure what this function does
 function buildList() {
   const currentList = filterList(allStudents);
@@ -368,6 +386,9 @@ function displayList(students) {
   // clear the list 
   document.querySelector("#list tbody").innerHTML = "";
   //console.table(allStudents);
+
+  displayCounter();
+
   // build a new list 
   students.forEach ( displayStudents );
 }
@@ -611,7 +632,6 @@ function closeDialog () {
   }
 }
 
-
 // for hacking the system!
 function hackTheSystem() {
 console.log("Your ass got hacked");
@@ -651,7 +671,7 @@ function addingMyNameToStudentList() {
   }
   
   // bloodstatusrandomizerrr
-  function bloodStatusRandomizer() {
+function bloodStatusRandomizer() {
   
     allStudents.forEach((student) => {
       student.bloodStatus = getBloodType(student.lastName);
@@ -670,10 +690,10 @@ function addingMyNameToStudentList() {
 
   });
 
-  }
+}
   
   // adding a student to the squad has a limited time and will be moved again. 
-  function squadTimelimit() {
+function squadTimelimit() {
 
     allStudents.forEach((student) => {
       student.squad = false;
@@ -685,3 +705,4 @@ function addingMyNameToStudentList() {
 
   // TODO: Add sound effect?
 }
+
