@@ -71,6 +71,10 @@ td[data-field="squad"] {
   cursor: pointer;
 }
 
+td[data-field="squad"]:hover {
+  font-size: large;
+}
+
 /* when the user click on squad */
 td[data-field="squad"]::after {
   content: "Ⓘ";
@@ -88,6 +92,10 @@ td[data-field="prefect"] {
   cursor: pointer;
 }
 
+td[data-field="prefect"]:hover {
+  font-size: large;
+}
+
 /* when user click */
 td[data-field="prefect"]::after {
   content: "Ⓟ";
@@ -103,6 +111,11 @@ td[data-field="prefect"][data-prefect="false"]::after {
 
 td[data-field="expel"] {
   cursor: pointer;
+}
+
+td[data-field="expel"]:hover {
+  font-size: large;
+  color: white;
 }
 
 /* when user click on expel */

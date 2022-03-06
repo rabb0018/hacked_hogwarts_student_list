@@ -411,6 +411,7 @@ function displayStudents ( student ) {
     function clickSquad() {
       if (student.bloodStatus === "Pure-blood" || student.house === "Slytherin") {
         student.squad = true;
+
       } else {
 
         student.squad = false;
@@ -466,6 +467,13 @@ function displayStudents ( student ) {
         document.querySelector("#expelwarning").classList.remove("hide");
         document.querySelector("#yesexpel").addEventListener("click", expelledNow);
         //  document.querySelector("#expelwarning [data-field=expelstudent").textContent = `${expelStudentNow.fullname}`;
+        document.querySelector("#yesexpel").addEventListener("mousedown", expelledSound);
+
+        function expelledSound() {
+          console.log("Expelsound");
+          document.querySelector("#expelsound").play();
+          document.querySelector("#expelsound").volume = 0.6;
+        }
 
         document.querySelector("#expelwarning .closebutton").addEventListener("click", expelledNow);
 
@@ -476,6 +484,9 @@ function displayStudents ( student ) {
       function expelledNow() {
         document.querySelector("#expelwarning").classList.add("hide");
         document.querySelector("#expelwarning .closebutton").removeEventListener("click", expelledNow);
+        
+
+        
 
         // NOT WORKING Expells too many students. ehhhh
         const indexOfStudent = allStudents.indexOf(student);
@@ -708,6 +719,5 @@ function squadTimelimit() {
 
   setTimeout(squadTimelimit, 5000);
 
-  // TODO: Add sound effect?
 }
 
