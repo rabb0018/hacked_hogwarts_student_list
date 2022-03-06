@@ -1,8 +1,9 @@
 body {
-  background-image: url("house_crests/rosie-sun-1L71sPT5XKc-unsplash.jpg");
+  background-image: url("house_crests/background3.png");
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
+  background-color: black;
 }
 
 @font-face {
@@ -20,7 +21,7 @@ body {
   text-align: center;
   margin-top: 50px;
   font-family: harryp;
-  font-size: 50px;
+  font-size: 70px;
   margin-bottom: 12px;
   margin-top: 35px;
 }
@@ -64,7 +65,7 @@ body {
 .search {
   color: white;
   font-family: dumital;
-  font-size: 20px;
+  font-size: 30px;
 }
 
 /* .fixnav {
@@ -73,10 +74,10 @@ body {
 } */
 
 #filter {
-  width: 130px;
+  width: 160px;
   position: fixed;
   /* z-index: 1; */
-  top: 230px;
+  top: 288px;
   left: 10px;
   overflow-x: hidden;
   padding: 8px 0;
@@ -89,7 +90,7 @@ body {
 button.filter {
   margin-bottom: 3px;
   font-family: dumital;
-  font-size: 15px;
+  font-size: 20px;
   background-color: #333;
   color: white;
 }
@@ -120,7 +121,7 @@ tbody {
 #sorting {
   color: white;
   font-family: dumital;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 400;
 }
 
@@ -139,7 +140,7 @@ tbody {
 
 #list {
   border-collapse: collapse;
-  width: 650px;
+  width: 770px;
 }
 
 #list tbody tr td {
@@ -193,8 +194,10 @@ tbody {
   box-shadow: 3px 1px 10px #333;
   border-radius: 12px;
   padding: 2em;
-  background-color: #fff3ea;
+  /* background: rgb(90, 92, 57); */
+  /* background: linear-gradient(150deg, rgba(90, 92, 57, 1) 19%, rgba(154, 156, 69, 1) 51%, rgba(255, 253, 41, 1) 82%); */
   position: relative;
+  width: 480px;
 }
 
 button.closingbutton {
@@ -204,6 +207,9 @@ button.closingbutton {
   border-radius: 50%;
   height: 2em;
   width: 2em;
+  color: white;
+  background-color: black;
+  cursor: pointer;
 }
 
 td[data-field="squad"] {
@@ -305,13 +311,13 @@ p {
 }
 
 .sidebyside {
-  margin-top: 20px;
+  margin-top: 30px;
 }
 
 button#removea {
   margin-bottom: 3px;
   font-family: dumital;
-  font-size: 15px;
+  font-size: 25px;
   background-color: #333;
   color: white;
 }
@@ -323,7 +329,7 @@ button#removeb:hover {
 button#removeb {
   margin-bottom: 3px;
   font-family: dumital;
-  font-size: 15px;
+  font-size: 25px;
   background-color: #333;
   color: white;
 }
@@ -344,7 +350,7 @@ button.closebutton {
 button#yesexpel {
   margin-bottom: 3px;
   font-family: dumital;
-  font-size: 15px;
+  font-size: 30px;
   background-color: #333;
   color: white;
   margin-top: 20px;
@@ -354,15 +360,70 @@ button#yesexpel:hover {
   background-color: black;
 }
 
-.housephoto {
-  width: 50px;
-}
-
 td {
   color: white;
+  font-size: 25px;
 }
 
 p {
   margin-bottom: 3px;
   margin-top: 0;
+  font-size: 25px;
+}
+
+.column {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.housephoto {
+  width: 150px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20px;
+  /* margin-bottom: 30px; */
+}
+
+.studentphoto {
+  width: 200px;
+}
+
+.firstname {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+
+.middlename {
+  margin-bottom: 10px;
+}
+
+.nickname {
+  margin-bottom: 10px;
+}
+
+.lastname {
+  margin-bottom: 10px;
+}
+
+.bloodstatus {
+  margin-bottom: 10px;
+}
+
+.house {
+  margin-bottom: 10px;
+}
+
+.squad {
+  margin-bottom: 10px;
+}
+
+.prefect {
+  margin-bottom: 10px;
+}
+
+.expel {
+  margin-bottom: 10px;
 }

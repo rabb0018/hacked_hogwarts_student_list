@@ -576,19 +576,20 @@ function displayStudent( student) {
 //  House crest and color
   if ( student.house === "Gryffindor") {
     popUp.querySelector(".housephoto").src = "house_crests/gryffindor.png";
-    popUp.querySelector(".dialogstudentinfo").style.backgroundColor = "red";
+    popUp.querySelector(".dialogstudentinfo").style.background = "linear-gradient(150deg, rgba(0,0,0,1) 15%, rgba(89,19,19,1) 30%, rgba(138,0,0,1) 50%, rgba(147,115,14,1) 70%, rgba(199,161,38,1) 85%)";
 
   } else if ( student.house === "Hufflepuff") {
     popUp.querySelector(".housephoto").src = "house_crests/hufflepuff.png";
-    popUp.querySelector(".dialogstudentinfo").style.backgroundColor = "yellow";
+    popUp.querySelector(".dialogstudentinfo").style.background = "linear-gradient(150deg, rgba(0,0,0,1) 15%, rgba(55,46,41,1) 30%, rgba(114,98,85,1) 50%, rgba(240,199,94,1) 70%, rgba(236,185,57,1) 85%)";
+
 
   } else if ( student.house === "Ravenclaw") {
     popUp.querySelector(".housephoto").src = "house_crests/ravenclaw.png";
-    popUp.querySelector(".dialogstudentinfo").style.backgroundColor = "blue";
+    popUp.querySelector(".dialogstudentinfo").style.background = "linear-gradient(150deg, rgba(0,0,0,1) 15%, rgba(148,107,45,1) 30%, rgba(93,93,93,1) 50%, rgba(34,47,91,1) 70%, rgba(14,26,64,1) 85%)";
 
   } else if ( student.house === "Slytherin") {
     popUp.querySelector(".housephoto").src = "house_crests/slytherin.png";
-    popUp.querySelector(".dialogstudentinfo").style.backgroundColor = "green";
+    popUp.querySelector(".dialogstudentinfo").style.background = "linear-gradient(150deg, rgba(0,0,0,1) 15%, rgba(170,170,170,1) 30%, rgba(93,93,93,1) 50%, rgba(42,98,61,1) 70%, rgba(26,71,42,1) 85%)";
   }
 
 }
