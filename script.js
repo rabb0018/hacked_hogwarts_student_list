@@ -2,7 +2,7 @@
 
 // global variables 
 let allStudents = []; 
-let expelledStudents = [];
+let expelledList = [];
 
 let studentData;
 let bloodStatusData;
@@ -365,10 +365,10 @@ function displayCounter() {
  const activeStudents = allStudents.filter((student) => !student.expelled).length;
 
 //  not working - ehhhhh
-const expelledStudentss = allStudents.filter((student) => student.expelled).length;
+const expelledStudents = allStudents.filter((student) => student.expelled).length;
 
  document.querySelector(".activestudentscounter").textContent = activeStudents;
-document.querySelector(".expelledstudentscounter").textContent = expelledStudentss;
+document.querySelector(".expelledstudentscounter").textContent = expelledStudents;
 
 
 }
@@ -477,9 +477,14 @@ function displayStudents ( student ) {
         document.querySelector("#expelwarning").classList.add("hide");
         document.querySelector("#expelwarning .closebutton").removeEventListener("click", expelledNow);
 
+        // NOT WORKING Expells too many students. ehhhh
         const indexOfStudent = allStudents.indexOf(student);
+        const expelledStudents = allStudents.splice(indexOfStudent, 1)[0];
+
+        expelledStudents.expel = true;
+
         console.log(indexOfStudent);
-        expelledStudents.push(allStudents.splice(indexOfStudent, 1));
+        expelledList.push(expelledStudents);
 
         buildList();
       }
