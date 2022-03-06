@@ -440,6 +440,7 @@ function displayStudents ( student ) {
         } else{
           tryToMakeAPrefect(student);
 
+
         }
 
         buildList();
@@ -485,9 +486,6 @@ function displayStudents ( student ) {
         document.querySelector("#expelwarning").classList.add("hide");
         document.querySelector("#expelwarning .closebutton").removeEventListener("click", expelledNow);
         
-
-        
-
         // NOT WORKING Expells too many students. ehhhh
         const indexOfStudent = allStudents.indexOf(student);
         const expelledStudents = allStudents.splice(indexOfStudent, 1)[0];
@@ -506,6 +504,16 @@ function displayStudents ( student ) {
         document.querySelector("#cannotexpel .closebutton").removeEventListener("click", closeExpelDialog);
       }
     } 
+
+    // for hacking hohohoho
+  document.querySelector(".hackthesystem").addEventListener("click", hackTheSystem);
+  document.querySelector(".hackthesystem").addEventListener("mousedown", hackSound);
+
+
+  function hackSound() {
+    document.querySelector("#hacksound").play();
+          document.querySelector("#hacksound").volume = 0.6;
+  }
 
     //adding eventlistener for popup
     clone.querySelector("[data-field=firstname]").addEventListener("click", () => displayStudent(student));
@@ -583,9 +591,6 @@ function displayStudent( student) {
     popUp.querySelector(".dialogstudentinfo").style.backgroundColor = "green";
   }
 
-  // for hacking hohohoho
-  document.querySelector(".hackthesystem").addEventListener("click", hackTheSystem);
-
 }
 
 // PREFECTS 
@@ -600,6 +605,7 @@ if ( numberOfPrefects >= 2) {
 } else {
   makePrefect(selectedStudent);
 }
+
 
   function removePrefectAOrB(prefectA, prefectB){
 
@@ -651,6 +657,7 @@ function closeDialog () {
 // for hacking the system!
 function hackTheSystem() {
 console.log("Your ass got hacked");
+
 
 // show animation of voldermort and make a sound that is laughing Avra Kadabra?
 
