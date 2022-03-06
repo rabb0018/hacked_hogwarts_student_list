@@ -1,8 +1,3 @@
-~~~~~~~~ÕNGOING~~~~~~~~~
-Filtering expelled vs non-expelled students 
 
-xx counter
-~~~~~~~~~~~~TODO:~~~~~~~~~~~~
 
-xx add eget design
-- Find på animationer til knapper og hacking feature. 
+

@@ -340,8 +340,6 @@ function sortList(sortedList) {
 
       sortedList = sortedList.sort (sortByProperty);
 
-      
-  
     function sortByProperty (studentA, studentB) {
       
       if (studentA[settings.sortBy] < studentB[settings.sortBy]) {
@@ -350,7 +348,6 @@ function sortList(sortedList) {
         return 1 * settings.direction;
       }
     }
-
 
   return sortedList;
 }
@@ -365,11 +362,10 @@ function displayCounter() {
  const activeStudents = allStudents.filter((student) => !student.expelled).length;
 
 //  not working - ehhhhh
-const expelledStudents = allStudents.filter((student) => student.expelled).length;
+  const expelledStudents = allStudents.filter((student) => student.expelled).length;
 
  document.querySelector(".activestudentscounter").textContent = activeStudents;
-document.querySelector(".expelledstudentscounter").textContent = expelledStudents;
-
+ document.querySelector(".expelledstudentscounter").textContent = expelledStudents;
 
 }
 
@@ -439,7 +435,6 @@ function displayStudents ( student ) {
   
         } else{
           tryToMakeAPrefect(student);
-
 
         }
 
@@ -607,7 +602,6 @@ if ( numberOfPrefects >= 2) {
   makePrefect(selectedStudent);
 }
 
-
   function removePrefectAOrB(prefectA, prefectB){
 
 // ask the user to ignore og remove a or b
@@ -658,7 +652,6 @@ function closeDialog () {
 // for hacking the system!
 function hackTheSystem() {
 console.log("Your ass got hacked");
-
 
 // show animation of voldermort and make a sound that is laughing Avra Kadabra?
 
